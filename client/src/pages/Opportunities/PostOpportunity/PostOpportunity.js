@@ -5,6 +5,7 @@ import Form from '../../../objects/Form/Form.js';
 import Alert from '../../..//components/Alert/Alert.js';
 import axios from 'axios';
 import parse from '../../../utils/parseFields';
+import valid from '../../../utils/validateForm';
 
 import endpoints from '../../../utils/endpoints.js';
 
@@ -28,25 +29,36 @@ export default class PostOpportunity extends Component {
     let { data } = this.state;
 
     data = parse.parseData(data, 'opportunities');
+    
+    let isZipValid = valid.validateZip(data.location_zip)
+  
+    try{      
+      if(!isZipValid) throw Error("Invalid Zip Code");
 
-    axios.post('/api/opportunities', data, {
-      headers: {
-        Authorization: 'Bearer ' + this.props.token
-      }
-    })
-      .then(res => {
-        this.setState({ response: {
-          type: 'alert-success',
-          text: 'Success!'
-        }});
+      axios.post('/api/opportunities', data, {
+        headers: {
+          Authorization: 'Bearer ' + this.props.token
+        }
       })
-      .catch(err => {
-        this.setState({ response: {
-          type: 'alert-danger',
-          text: err.response.data.message ?
-            'Error: ' + err.response.data.message : err.message
-        }});
-      });
+        .then(res => {
+          this.setState({ response: {
+            type: 'alert-success',
+            text: 'Success!'
+          }});
+        })
+        .catch(err => {
+          this.setState({ response: {
+            type: 'alert-danger',
+            text: err.response.data.message ?
+              'Error: ' + err.response.data.message : err.message
+          }});
+        });
+    } catch (err) {
+      this.setState({ response: {
+        type: 'alert-danger',
+        text:'Error: ' + err.message
+      }});
+    }
   }
 
   setValue(obj) {
