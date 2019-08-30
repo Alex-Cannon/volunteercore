@@ -1,5 +1,7 @@
 // Variables for the whole project
 
+// Colors
+//
 $text-light: #fff;
 $text-mid: #ddd;
 $text-dark: #222;
@@ -7,6 +9,14 @@ $text-dark: #222;
 $accent-primary: #c72d25;
 $emphasis: #61dafb;
 
+// Padding
+//
+$pad-1: 1rem;
+$pad-2: 3rem;
+$pad-3: 6rem;
+
+// Breakpoints
+//
 $breakpoints: (
   // Small devices (landscape phones, 576px and up)
   'phone': 576px,
@@ -24,7 +34,7 @@ $breakpoints: (
 // Device breakpoints
 @mixin device-up($breakpoint) {
   @if map-has-key($breakpoints, $breakpoint) {
-    '': map-get($breakpoints, $breakpoint)) {
+    @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
       @content;
     }
   }

@@ -1,15 +1,26 @@
 import React from 'react';
+import './App.scss';
+
+import history from '../../utils/helpers/history';
+import { Router, Route, Redirect } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-
 import { activateGeod, closeGeod } from '../../redux/actions';
+
+// COMPONENTS
+import Navbar from '../Navbar/Navbar';
+
+// ROUTES
+import Signin from '../../pages/Signin/Signin';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        hello world
-      </header>
+    <div className="app-wrapper">
+      <Router history={history}>
+        <Navbar/>
+        <Route component={() => <Redirect to="/signin"/>} exact path="/"/>
+        <Route component={Signin} exact path="/signin"/>
+      </Router>
     </div>
   );
 }

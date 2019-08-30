@@ -1,0 +1,31 @@
+// Base styles across the project
+@import 'variables';
+@import url('/assets/fonts/Manjari-Regular.ttf');
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $text-dark;
+  color: $text-light;
+  font-family: 'Manjari', sans-serif;
+}
+
+main {
+  background-color: $text-light;
+  color: $text-dark;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.4rem; }
+h3 { font-size: 1.9rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.3rem; }
+h6 { font-size: 1.1rem; }
+
+h1, h2, h3 ,h4, h5, h6 {
+  line-height: 1em;
+}

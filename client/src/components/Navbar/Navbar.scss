@@ -1,0 +1,21 @@
+@import '../../utils/variables';
+
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 0 $pad-1;
+  background-color: $text-light;
+  color: $text-dark;
+  border-bottom: 1px solid $text-mid;
+}
+
+.navbar-links {
+  a {
+    padding-right: $pad-1;
+    &:last-of-type {
+      padding-right: 0;
+    }
+  }
+}
