@@ -2,6 +2,10 @@
 @import 'variables';
 @import url('/assets/fonts/Manjari-Regular.ttf');
 
+:root {
+  font-size: 17px;
+}
+
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -27,5 +31,15 @@ h5 { font-size: 1.3rem; }
 h6 { font-size: 1.1rem; }
 
 h1, h2, h3 ,h4, h5, h6 {
+  margin: 0;
   line-height: 1em;
+}
+
+a {
+  color: $emphasis;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    color: darken($emphasis, 15%);
+  }
 }

@@ -7,10 +7,10 @@ export default () => {
   return (
     <header>
       <nav id="navbar">
-        <div>
-          <h4>Volunteer Core</h4>
+        <div className="navbar-content">
+          Volunteer Core
         </div>
-        <div className="navbar-links">
+        <div className="navbar-content">
           <Link to="/opportunities">Opportunities</Link>
           <Link to="/partners">Partners</Link>
           <Link to="/signin">Signin</Link>
