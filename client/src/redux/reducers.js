@@ -1,16 +1,21 @@
 import { combineReducers } from 'redux';
 
-export const geod = (state = {}, action) => {
+export const user = (state = {}, action) => {
+  const newUser = {};
+  Object.assign(newUser, state);
   switch (action.type) {
-    case 'ACTIVATE_GEOD':
-      return action.geod;
-    case 'CLOSE_GEOD':
-      return {};
+    case 'SET_USERNAME':
+      newUser.username = action.value;
+      break;
+    case 'SET_PASSWORD':
+      newUser.passsword = action.value;
+      break;
     default:
-      return state;
+      break;
   }
+  return newUser;
 };
 
 export const reducers = combineReducers({
-  geod,
+  user,
 });

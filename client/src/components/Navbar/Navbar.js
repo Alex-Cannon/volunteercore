@@ -8,13 +8,12 @@ export default () => {
     <header>
       <nav id="navbar">
         <div className="navbar-content">
-          <image src="%PUBLIC_URL%/voa_logo.ico" alt="Logo"/>
-          Volunteer Core
+          <img src="/voa_logo.ico" alt="Logo"/> Volunteer Core
         </div>
         <div className="navbar-content">
           <Link to="/opportunities">Opportunities</Link>
           <Link to="/partners">Partners</Link>
-          <Link to="/signin">Signin</Link>
+          <Link to="/signin">Sign in</Link>
           <Link to="/help">Help</Link>
         </div>
       </nav>

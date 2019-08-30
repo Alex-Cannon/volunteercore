@@ -1,8 +1,9 @@
-export const activateGeod = geod => ({
-  type: 'ACTIVATE_GEOD',
-  geod,
+export const setUsername = value => ({
+  type: 'SET_USERNAME',
+  value,
 });
 
-export const closeGeod = () => ({
-  type: 'CLOSE_GEOD',
+export const setPassword = value => ({
+  type: 'SET_PASSWORD',
+  value
 });

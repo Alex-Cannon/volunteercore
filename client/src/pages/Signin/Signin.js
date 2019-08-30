@@ -5,7 +5,10 @@ import Card from '../../components/Card/Card';
 import Form from '../../common/Form/Form';
 import Input from '../../common/Input/Input';
 
-export default () => {
+import { connect } from 'react-redux';
+import { setUsername, setPassword } from '../../redux/actions';
+
+export const SignIn = ({ user, setUsername, setPassword }) => {
   return (
     <PageWrapper>
       <div className="text-center">
@@ -16,9 +19,13 @@ export default () => {
         <Form>
           <Input
             label="Username"
+            setValue={setUsername}
+            value={user.username}
           />
           <Input
             label="Password"
+            setValue={setPassword}
+            value={user.password}
           />
           <Input
             type="submit"
@@ -29,3 +36,20 @@ export default () => {
     </PageWrapper>
   );
 }
+
+// AppContainer.js
+const mapStateToProps = state => ({
+  user: state.user,
+});
+
+const mapDispatchToProps = {
+  setUsername,
+  setPassword,
+};
+
+const SignInContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignIn);
+
+export default SignInContainer;

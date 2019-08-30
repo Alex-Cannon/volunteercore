@@ -12,6 +12,8 @@
 }
 
 .navbar-content {
+  display: flex;
+  align-items: center;
   a {
     padding-right: $pad-1;
     &:last-of-type {
