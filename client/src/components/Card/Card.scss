@@ -1,0 +1,9 @@
+@import '../../utils/variables';
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  border: 1px solid $text-mid;
+  padding: $pad-1;
+}

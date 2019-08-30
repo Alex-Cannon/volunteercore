@@ -9,6 +9,7 @@ import { activateGeod, closeGeod } from '../../redux/actions';
 
 // COMPONENTS
 import Navbar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 
 // ROUTES
 import Signin from '../../pages/Signin/Signin';
@@ -20,6 +21,7 @@ function App() {
         <Navbar/>
         <Route component={() => <Redirect to="/signin"/>} exact path="/"/>
         <Route component={Signin} exact path="/signin"/>
+        <Footer/>
       </Router>
     </div>
   );

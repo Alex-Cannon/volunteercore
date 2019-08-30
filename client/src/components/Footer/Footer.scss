@@ -1,0 +1,9 @@
+@import '../../utils/variables';
+
+#footer {
+  display: flex;
+  justify-content: center;
+  padding: $pad-2;
+  background-color: $text-dark;
+  color: $text-light;
+}
