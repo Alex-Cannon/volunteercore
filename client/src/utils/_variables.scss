@@ -1,0 +1,36 @@
+// Variables for the whole project
+
+$text-light: #fff;
+$text-mid: #ddd;
+$text-dark: #222;
+
+$accent-primary: #c72d25;
+$emphasis: #61dafb;
+
+$breakpoints: (
+  // Small devices (landscape phones, 576px and up)
+  'phone': 576px,
+
+  // Medium devices (tablets, 768px and up)
+  'tablet': 768px,
+
+  // Large devices (desktops, 992px and up)
+  'desktop': 992px,
+
+  // Extra large devices (large desktops, 1200px and up)
+  'desktop-big': 1200px
+);
+
+// Device breakpoints
+@mixin device-up($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    '': map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+ 
+  @else {
+    @warn "Breakpoint `#{$breakpoint}` not found."
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
