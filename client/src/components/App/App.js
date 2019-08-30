@@ -2,7 +2,7 @@ import React from 'react';
 import './App.scss';
 
 import history from '../../utils/helpers/history';
-import { Router, Route, Redirect } from 'react-router-dom';
+import { Router, Route, Switch, Redirect } from 'react-router-dom';
 
 // COMPONENTS
 import Navbar from '../Navbar/Navbar';
@@ -17,9 +17,11 @@ function App() {
     <div className="app-wrapper">
       <Router history={history}>
         <Navbar/>
-        <Route component={() => <Redirect to="/signin"/>} exact path="/"/>
-        <Route component={Signin} exact path="/signin"/>
-        <Route component={Page404} path="*"/>
+        <Switch>
+          <Route component={() => <Redirect to="/signin"/>} exact path="/"/>
+          <Route component={Signin} exact path="/signin"/>
+          <Route component={Page404}/>
+        </Switch>
         <Footer/>
       </Router>
     </div>
