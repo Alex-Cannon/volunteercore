@@ -9,6 +9,7 @@ export default () => {
     <div className="search-bar">
       <Form className="search-bar-form">
         <Input
+          flex={3}
           label={null}
           name="query"
           placeholder="Search Opportunities"

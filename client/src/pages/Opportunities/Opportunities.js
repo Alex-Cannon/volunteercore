@@ -6,9 +6,10 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 export const Opportunities = () => {
   return (
     <PageWrapper>
-      <section className="text-center">
-        <h4>Search Opportunities</h4>
+      <section>
+        <h3>Opportunities</h3>
         <SearchBar/>
+        <p>Results</p>
       </section>
     </PageWrapper>
   );
