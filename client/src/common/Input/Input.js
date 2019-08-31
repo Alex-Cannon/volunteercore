@@ -1,9 +1,9 @@
 import React from 'react';
 import './Input.scss';
 
-export default ({ flex, type, label, name, placeholder, setValue, value}) => {
+export default ({ flex, margin, type, label, name, placeholder, setValue, value}) => {
   return (
-    <div className="input-group" style={{ flex: flex || 1 }}>
+    <div className="input-group" style={{ flex: flex || 1, marginBottom: margin || '1em' }}>
       {(() => {
         if (type === 'submit') return '';
         if (label === null) return '';

@@ -1,8 +1,10 @@
 @import '../../utils/variables';
+@import '../../utils/common';
 
 .search-bar {
   display: flex;
   width: 100%;
+  margin-bottom: $pad-1;
 }
 
 .search-bar-form {
@@ -14,7 +16,13 @@
     border-bottom-right-radius: 0;
   }
   .input[type=submit] {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    @extend .btn-primary;
+    border-radius: 0;
   }
+}
+
+.search-bar-post-btn {
+  flex: 1;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }

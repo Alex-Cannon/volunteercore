@@ -1,0 +1,50 @@
+@import 'variables';
+
+.text-center {
+  text-align: center;
+}
+
+.text-danger {
+  color: $text-danger;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid $text-mid;
+  background: $text-mid;
+  text-decoration: none;
+  padding: .5em .75em;
+  transition: 0.2s;
+  &:hover {
+    background: darken($text-mid, 10%);
+    border: 1px solid darken($text-mid, 10%);
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+.btn-info {
+  @extend .btn;
+  background: $emphasis;
+  color: $text-light;
+  border: 1px solid $emphasis;
+  &:hover {
+    background-color: darken($emphasis, 15%);
+    border: 1px solid darken($emphasis, 15%);
+    color: $text-light;
+  }
+}
+
+.btn-primary {
+  @extend .btn;
+  background: $text-dark;
+  color: $text-light;
+  border: 1px solid $text-dark;
+  &:hover {
+    background-color: lighten($text-dark, 10%);
+    border: 1px solid lighten($text-dark, 10%);
+  }
+}
