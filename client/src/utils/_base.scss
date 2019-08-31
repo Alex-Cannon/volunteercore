@@ -1,6 +1,6 @@
 // Base styles across the project
 @import 'variables';
-@import url('/assets/fonts/Manjari-Regular.ttf');
+@import '../assets/fonts/Manjari-Regular.ttf';
 
 :root {
   font-size: 17px;
@@ -54,4 +54,8 @@ a {
 
 .text-center {
   text-align: center;
+}
+
+.text-danger {
+  color: $text-danger;
 }

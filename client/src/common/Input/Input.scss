@@ -21,14 +21,17 @@
     outline: none;
   }
   &[type=submit] {
-    background-color: $text-success;
-    border: 1px solid $text-success;
-    border: 0;
+    background-color: $emphasis;
+    border: 1px solid $emphasis;
+    color: $text-light;
     transition: 0.2s ease-in-out;
     &:hover {
       cursor: pointer;
-      background-color: darken($text-success, 10%);
-      color: $text-light;
+      background-color: darken($emphasis, 10%);
+    }
+    &:active, &:focus {
+      background-color: darken($emphasis, 5%);
+      border: 1px solid darken($emphasis, 50%);
     }
   }
 }

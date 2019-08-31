@@ -1,9 +1,23 @@
-export const setUsername = value => ({
+export const setUsername = username => ({
   type: 'SET_USERNAME',
-  value,
+  value: username,
 });
 
-export const setPassword = value => ({
+export const setPassword = password => ({
   type: 'SET_PASSWORD',
-  value
+  value: password
+});
+
+export const authLoading = () => ({
+  type: 'AUTH_LOADING'
+});
+
+export const authSuccess = data => ({
+  type: 'AUTH_SUCCESS',
+  data
+});
+
+export const authError = error => ({
+  type: 'AUTH_ERROR',
+  error
 });
