@@ -2,7 +2,7 @@ import { isAdmin } from './isAdmin';
 
 const validUser = {
   data: {
-    roles: ['Admin']
+    roles: ["Admin"]
   }
 };
 

@@ -1,4 +1,6 @@
 export const isAuth = (user) => {
-  if (!user) return false;
-  return user.data && user.data.id;
+  if (user && user.data && user.data.id && !isNaN(user.data.id)) {
+    return true;
+  }
+  return false;
 }
