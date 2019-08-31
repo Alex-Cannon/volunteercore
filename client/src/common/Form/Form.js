@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default ({ children, onSubmit }) => {
+export default ({ children, onSubmit, className }) => {
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className={className}>
       { children }
     </form>
   )

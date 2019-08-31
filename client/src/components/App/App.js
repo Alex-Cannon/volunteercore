@@ -16,8 +16,10 @@ import Footer from '../Footer/Footer';
 // ROUTES
 import Signin from '../../pages/Signin/Signin';
 import Page404 from '../../pages/Page404/Page404';
+import Opportunities from '../../pages/Opportunities/Opportunities';
 
 function App() {
+  // Auto Sign-In users with a session cookie
   useEffect(() => {
     getUser()
       .then(({ data }) => {
@@ -32,6 +34,7 @@ function App() {
         <Switch>
           <Route component={() => <Redirect to="/signin"/>} exact path="/"/>
           <Route component={Signin} exact path="/signin"/>
+          <Route component={Opportunities} exact path="/opportunities"/>
           <Route component={Page404}/>
         </Switch>
         <Footer/>

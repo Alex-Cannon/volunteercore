@@ -17,7 +17,7 @@
   border-radius: 5px;
   font-size: 1rem;
   &:active, &:focus {
-    border: 1px solid $text-dark;
+    border: 1px solid $emphasis;
     outline: none;
   }
   &[type=submit] {
