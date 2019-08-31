@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Component } from 'react';
 import './App.scss';
 
 import history from '../../utils/helpers/history';
@@ -21,48 +21,58 @@ import Page404 from '../../pages/Page404/Page404';
 import Page401 from '../../pages/Page401/Page401';
 import Opportunities from '../../pages/Opportunities/Opportunities';
 
-const App = ({ user }) => {
-  // Auto Sign-In users with a session cookie
-  useEffect(() => {
+class App extends Component {
+  componentDidMount() {
+    if (isAuth(this.props.user)) return;
+    // Auto Sign-In users with a session cookie
     getUser()
       .then(({ data }) => {
-        store.dispatch(authSuccess(data));
+        this.props.authSuccess(data);
       });
-  });
+  }
 
-  return (
-    <div className="app-wrapper">
-      <Router history={history}>
-        <Navbar/>
-        <Switch>
-          {(() => {
-            if (isAuth(user)) {
+  render () {
+    const { user } = this.props;
+
+    return (
+      <div className="app-wrapper">
+        <Router history={history}>
+          <Navbar/>
+          <Switch>
+            {(() => {
+              if (isAuth(user)) {
+                return [
+                  <Route component={Opportunities} exact path="/opportunities"/>
+                ]
+              }
               return [
-                <Route component={Opportunities} exact path="/opportunities"/>
-              ]
-            }
-            return [
-              <Route component={Page401} exact path="/opportunities"/>,
-              <Route component={Page401} exact path="/partners"/>,
-              <Route component={Page401} exact path="/admin/dashboard"/>
-            ];
-          })()}
-          <Route component={() => <Redirect to="/signin"/>} exact path="/"/>
-          <Route component={Signin} exact path="/signin"/>
-          <Route component={Page404}/>
-        </Switch>
-        <Footer/>
-      </Router>
-    </div>
-  );
+                <Route component={Page401} exact path="/opportunities"/>,
+                <Route component={Page401} exact path="/partners"/>,
+                <Route component={Page401} exact path="/admin/dashboard"/>
+              ];
+            })()}
+            <Route component={() => <Redirect to="/signin"/>} exact path="/"/>
+            <Route component={Signin} exact path="/signin"/>
+            <Route component={Page404}/>
+          </Switch>
+          <Footer/>
+        </Router>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => ({
   user: state.user
 });
 
+const mapDispatchToProps = () => ({
+  authSuccess
+});
+
 const AppContainer = connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(App);
 
 export default AppContainer;

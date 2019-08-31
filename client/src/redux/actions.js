@@ -25,3 +25,17 @@ export const authError = error => ({
 export const signOut = () => ({
   type: 'SIGN_OUT'
 });
+
+export const loadingGetOpportunities = () => ({
+  type: 'LOADING_GET_OPPORTUNITIES'
+});
+
+export const successGetOpportunities = data => ({
+  type: 'SUCCESS_GET_OPPORTUNITIES',
+  data
+});
+
+export const errorGetOpportunities = error => ({
+  type: 'ERROR_GET_OPPORTUNITIES',
+  error
+});

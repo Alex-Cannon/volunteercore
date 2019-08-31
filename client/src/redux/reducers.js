@@ -34,6 +34,28 @@ export const user = (user = { username: '', password: ''}, action) => {
   return newUser;
 };
 
+export const opportunites = (opportunities = {}, action) => {
+  const newOpportunities = {};
+  Object.assign(newOpportunities, opportunities);
+  switch (action.type) {
+    case 'LOADING_GET_OPPORTUNITIES':
+      newOpportunities.loading = true;
+      break;
+    case 'ERROR_GET_OPPORTUNITIES':
+      newOpportunities.error = action.error;
+      newOpportunities.loading = false;
+      newOpportunities.data = null;
+      break;
+    case 'SUCCESS_GET_OPPORTUNITIES':
+      newOpportunities.data = action.data;
+      newOpportunities.loading = false;
+      newOpportunities.error = null;
+      break;
+    default:
+      break;
+  }
+}
+
 export const reducers = combineReducers({
   user
 });
