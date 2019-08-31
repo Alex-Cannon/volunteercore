@@ -14,10 +14,15 @@
 .navbar-content {
   display: flex;
   align-items: center;
-  a {
-    padding-right: $pad-1;
-    &:last-of-type {
-      padding-right: 0;
-    }
+}
+
+.navbar-link {
+  display: inline-block;
+  color: $emphasis;
+  padding-right: $pad-1;
+  &:hover {
+    color: darken($emphasis, 15%);
+    text-decoration: underline;
+    cursor: pointer;
   }
 }

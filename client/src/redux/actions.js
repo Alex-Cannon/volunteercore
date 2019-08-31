@@ -21,3 +21,7 @@ export const authError = error => ({
   type: 'AUTH_ERROR',
   error
 });
+
+export const signOut = () => ({
+  type: 'SIGN_OUT'
+});

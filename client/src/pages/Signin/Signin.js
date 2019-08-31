@@ -59,10 +59,9 @@ export const SignIn = ({ user, setUsername, setPassword }) => {
   );
 }
 
-// AppContainer.js
+// SignInContainer.js
 const mapStateToProps = state => ({
-  user: state.user,
-  auth: state.auth
+  user: state.user
 });
 
 const mapDispatchToProps = {

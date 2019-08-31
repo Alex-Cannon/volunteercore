@@ -23,6 +23,11 @@ export const user = (user = { username: '', password: ''}, action) => {
       newUser.loading = false;
       newUser.data = null;
       break;
+    case 'SIGN_OUT':
+      newUser.loading = false;
+      newUser.data = null;
+      newUser.error = null;
+      break;
     default:
       break;
     }

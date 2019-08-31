@@ -1,3 +1,4 @@
 export const isAdmin = (user) => {
-  return user.roles && user.roles.indexOf("Admin") !== -1;
+  if (!user) return false;
+  return user.data && user.data.roles && user.data.roles.indexOf("Admin") !== -1;
 }
