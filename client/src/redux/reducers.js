@@ -109,9 +109,44 @@ export const partnerForm = (formData = { data: {} }, action) => {
   return newFormData;
 }
 
+export const partnerSearch = (partnerSearch = {
+  options: {
+    page: 1,
+    per_page: 10,
+    search: ''
+  }}, action) => {
+  const newPartnerSearch = {};
+  Object.assign(newPartnerSearch, partnerSearch);
+  
+  switch (action.type) {
+    case 'SET_PARTNER_SEARCH_FIELD':
+      newPartnerSearch.options[action.field] = action.value;
+      break;
+    case 'LOADING_PARTNER_SEARCH':
+      newPartnerSearch.success = false;
+      newPartnerSearch.error = null;
+      newPartnerSearch.loading = true;
+      break;
+    case 'ERROR_PARTNER_SEARCH':
+      newPartnerSearch.success = false;
+      newPartnerSearch.error = action.error;
+      newPartnerSearch.loading = false;
+      break;
+    case 'SUCCESS_PARTNER_SEARCH':
+      newPartnerSearch.data = action.data;
+      newPartnerSearch.error = null;
+      newPartnerSearch.loading = false;
+      break;
+    default:
+      break;
+  }
+  return newPartnerSearch;
+};
+
 export const reducers = combineReducers({
   user,
   opportunites,
   postOpportunities,
-  partnerForm
+  partnerForm,
+  partnerSearch
 });

@@ -1,3 +1,4 @@
+// Authentication
 export const setUsername = username => ({
   type: 'SET_USERNAME',
   value: username,
@@ -26,6 +27,7 @@ export const signOut = () => ({
   type: 'SIGN_OUT'
 });
 
+// Get opportunity
 export const loadingGetOpportunities = () => ({
   type: 'LOADING_GET_OPPORTUNITIES'
 });
@@ -40,6 +42,7 @@ export const errorGetOpportunities = error => ({
   error
 });
 
+// Post opportunity
 export const loadingPostOpportunity = () => ({
   type: 'LOADING_POST_OPPORTUNITY'
 });
@@ -54,6 +57,7 @@ export const errorPostOpportunity = error => ({
   error
 });
 
+// Post partner
 export const setPartnerFormField = (field, value) => {
   return {
   type: 'SET_PARTNER_FORM_FIELD',
@@ -71,5 +75,26 @@ export const successPostPartner = () => ({
 
 export const errorPostPartner = error => ({
   type: 'ERROR_POST_PARTNER',
+  error
+});
+
+// Partner search
+export const setPartnerSearchField = (field, value) => ({
+  type: 'SET_PARTNER_SEARCH_FIELD',
+  field,
+  value
+});
+
+export const loadingPartnerSearch = () => ({
+  type: 'LOADING_PARTNER_SEARCH'
+});
+
+export const successPartnerSearch = data => ({
+  type: 'SUCCESS_PARTNER_SEARCH',
+  data
+});
+
+export const errorPartnerSearch = error => ({
+  type: 'ERROR_PARTNER_SEARCH',
   error
 });

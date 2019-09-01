@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Form from '../../common/Form/Form';
 import Input from '../../common/Input/Input';
 
-export default ({ addLink, onSubmit, placeholder }) => {
+export default ({ addLink, onSubmit, placeholder, value, setValue }) => {
   return (
     <div className="search-bar">
       <Form className="search-bar-form" onSubmit={onSubmit}>
@@ -16,6 +16,8 @@ export default ({ addLink, onSubmit, placeholder }) => {
           label={null}
           name="query"
           placeholder={placeholder}
+          value={value || ''}
+          setValue={setValue}
         />
         <Input
           flex={1}
