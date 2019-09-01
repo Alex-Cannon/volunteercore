@@ -7,8 +7,10 @@ const dispatch = store.dispatch;
 export const postPartner = (data) => {
   dispatch(loadingPostPartner());
 
+  alert(JSON.stringify(data));
+
   axios.post('/api/partners', data)
-    .then(res => {
+    .then(() => {
       dispatch(successPostPartner())
     })
     .catch(error => {

@@ -6,10 +6,12 @@ import PageWrapper from '../../components/PageWrapper/PageWrapper';
 import Form from '../../common/Form/Form';
 import Input from '../../common/Input/Input';
 
+import postPartner from '../../utils/services/partner/postPartner';
+
+import { store } from '../../redux/store';
 import { connect } from 'react-redux';
 import { setPartnerFormField } from '../../redux/actions';
-
-import postPartner from '../../utils/services/partner/postPartner';
+const dispatch = store.dispatch;
 
 export const PartnersForm = ({ method, partnerForm, setFieldToValue }) => {
   const { data, loading, success, error } = partnerForm;
@@ -19,12 +21,16 @@ export const PartnersForm = ({ method, partnerForm, setFieldToValue }) => {
       <p>
         <Link to="/opportunities">&lt;-- Search Opportunities</Link>
       </p>
-      <Form onSubmit={ method === 'post' ? postPartner : ''}>
+      <Form onSubmit={ method === 'post' ? 
+        (e) => {
+          e.preventDefault();
+          postPartner(data);
+        }: () =>{}}>
         <Input
           label="Partner Name"
           name="name"
-          setValue={(val) => setFieldToValue("name", val)}
-          value={data.name}
+          setValue={(val) => dispatch(setFieldToValue("name", val))}
+          value={data.name || ""}
         />
         <Input
           type="submit"
