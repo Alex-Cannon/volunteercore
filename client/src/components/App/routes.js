@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import Signin from '../../pages/Signin/Signin';
 import Page404 from '../../pages/Page404/Page404';
 import Opportunities from '../../pages/Opportunities/Opportunities';
+import OpportunitiesForm from '../../pages/OpportunitiesForm/OpportunitiesForm';
 
 export default [{
   path: '/',
@@ -15,7 +16,11 @@ export default [{
 }, {
   path: '/opportunities',
   component: Opportunities,
-  auth: true // Requires signed-in user
+  auth: true
 }, {
+  path: '/opportunities/post',
+  component: () => <OpportunitiesForm method="post"/>,
+  auth: true
+},{
   component: Page404
 }];

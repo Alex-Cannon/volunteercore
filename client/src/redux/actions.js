@@ -39,3 +39,17 @@ export const errorGetOpportunities = error => ({
   type: 'ERROR_GET_OPPORTUNITIES',
   error
 });
+
+export const loadingPostOpportunities = () => ({
+  type: 'LOADING_POST_OPPORTUNITIES'
+});
+
+export const successPostOpportunities = data => ({
+  type: 'SUCCESS_POST_OPPORTUNITIES',
+  data
+});
+
+export const errorPostOpportunities = error => ({
+  type: 'ERROR_POST_OPPORTUNITIES',
+  error
+});
