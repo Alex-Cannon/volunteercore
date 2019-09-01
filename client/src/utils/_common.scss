@@ -48,3 +48,10 @@
     border: 1px solid lighten($text-dark, 10%);
   }
 }
+
+ol, ul {
+  margin-left: 1em;
+  li {
+    margin-bottom: .5em;
+  }
+}

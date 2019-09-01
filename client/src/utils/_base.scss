@@ -49,6 +49,7 @@ a {
   &:hover {
     text-decoration: underline;
     color: darken($emphasis, 15%);
+    cursor: pointer;
   }
 }
 

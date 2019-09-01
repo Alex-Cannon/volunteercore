@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ExternalLink as ExLink } from '../../common/ExternalLink/ExternalLink';
 
 import PageWrapper from '../../components/PageWrapper/PageWrapper';
 
@@ -56,6 +57,7 @@ export const OpportunitiesForm = ({ method }) => {
           value="Add Opportunity"
         />  
       </Form>
+      <p>* Request modifications to this form by <ExLink>submitting an issue</ExLink>.</p>
     </PageWrapper>
   );
 }

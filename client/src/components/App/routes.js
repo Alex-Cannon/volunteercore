@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 
 // ROUTES
 import Signin from '../../pages/Signin/Signin';
+import Help from '../../pages/Help/Help';
 import Page404 from '../../pages/Page404/Page404';
 import Opportunities from '../../pages/Opportunities/Opportunities';
 import OpportunitiesForm from '../../pages/OpportunitiesForm/OpportunitiesForm';
@@ -14,6 +15,9 @@ export default [{
 }, {
   path: '/signin',
   component: Signin
+}, {
+  path: '/help',
+  component: Help
 }, {
   path: '/opportunities',
   component: Opportunities,
