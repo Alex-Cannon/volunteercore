@@ -43,12 +43,12 @@ export const SignIn = ({ user, setUsername, setPassword }) => {
         <div className="text-center">
           <p>To Sign up or reset a password, please contact your site administrator.</p>
           { user.loading ? <p>Loading...</p> : '' }
-          { user.error ? <p className="text-danger">{(() => {
+          { user.error && !user.error.autoSignIn ? <p className="text-danger">{(() => {
             const status = user.error.response.status;
             if (status <= 400 && status < 500) {
               return 'Invalid username or password. Please re-enter your username and password and try again.';
             }
-            if (status <= 500 && status < 600) {
+            if (status <= 500 && status < 600 ) {
               return 'Internal server error. Please reload the page and try again.';
             }
             return 'Error, please reload the page and try again.';

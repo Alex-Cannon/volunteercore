@@ -27,11 +27,12 @@ export const App = ({ user, authSuccess }) => {
     // Auto Sign-In users with a session cookie
     getUser()
       .then(({ data }) => {
-        if (!data) {
-          return store.dispatch(authError({ message: '401 unauthorized'}));
-        }
-        store.dispatch(authSuccess(data));
-      });
+        if (data) store.dispatch(authSuccess(data));
+        if (!data) store.dispatch(authError({ autoSignIn: true, message: "401 error", response: { status: 401 }}));
+      })
+      .catch(({ error }) => {
+        store.dispatch(authError(error));
+      })
   });
 
   const RESOLVED_ROUTES = (() => {
