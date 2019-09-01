@@ -15,3 +15,5 @@ export const Partners = () => {
     </PageWrapper>
   )
 }
+
+export default Partners;

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './App.scss';
 
 import history from '../../utils/helpers/history';
-import { Router, Route, Switch, Redirect } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { store } from '../../redux/store';

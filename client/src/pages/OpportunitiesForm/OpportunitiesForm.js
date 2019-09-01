@@ -14,7 +14,7 @@ import { postOpportunity } from '../../utils/services/opportunity/postOpportunit
 export const OpportunitiesForm = ({ method }) => {
   return (
     <PageWrapper>
-      <h3>Post Opportunity</h3>
+      <h3>Add Opportunity</h3>
       <p>
         <Link to="/opportunities">&lt;-- Search Opportunities</Link>
       </p>

@@ -7,11 +7,12 @@ import Help from '../../pages/Help/Help';
 import Page404 from '../../pages/Page404/Page404';
 import Opportunities from '../../pages/Opportunities/Opportunities';
 import OpportunitiesForm from '../../pages/OpportunitiesForm/OpportunitiesForm';
-import { Partners } from '../../pages/Partners/Partners';
+import Partners from '../../pages/Partners/Partners';
+import PartnersForm from '../../pages/PartnersForm/PartnersForm';
 
 export default [{
   path: '/',
-  component: <Redirect to="/signin"/>
+  component: () => <Redirect to="/signin"/>
 }, {
   path: '/signin',
   component: Signin
@@ -29,6 +30,10 @@ export default [{
 }, {
   path: '/partners',
   component: Partners,
+  auth: true
+}, {
+  path: '/partners/post',
+  component: PartnersForm,
   auth: true
 }, {
   component: Page404
