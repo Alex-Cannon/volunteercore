@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import './App.scss';
 
 import history from '../../utils/helpers/history';
@@ -14,52 +14,44 @@ import { isAuth } from '../../utils/helpers/isAuth';
 // COMPONENTS
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
+import Page401 from '../../pages/Page401/Page401';
 
 // ROUTES
-import Signin from '../../pages/Signin/Signin';
-import Page404 from '../../pages/Page404/Page404';
-import Page401 from '../../pages/Page401/Page401';
-import Opportunities from '../../pages/Opportunities/Opportunities';
+import ROUTES from './routes.js';
 
-class App extends Component {
-  componentDidMount() {
-    if (isAuth(this.props.user)) return;
+export const App = ({ user, authSuccess }) => {
+  useEffect(() => {
+    if (isAuth(user)) return;
+
     // Auto Sign-In users with a session cookie
     getUser()
       .then(({ data }) => {
-        this.props.authSuccess(data);
+        store.dispatch(authSuccess(data));
       });
-  }
+  });
 
-  render () {
-    const { user } = this.props;
+  const RESOLVED_ROUTES = (() => {
+    return ROUTES.map(({path, component, auth}) => {
+      if (auth) {
+        if (!isAuth(user)) {
+          return <Route component={Page401} exact path={path}/>;
+        }
+      }
+      return <Route component={component} exact path={path}/>;
+    });
+  })();
 
-    return (
-      <div className="app-wrapper">
-        <Router history={history}>
-          <Navbar/>
-          <Switch>
-            {(() => {
-              if (isAuth(user)) {
-                return [
-                  <Route component={Opportunities} exact path="/opportunities"/>
-                ]
-              }
-              return [
-                <Route component={Page401} exact path="/opportunities"/>,
-                <Route component={Page401} exact path="/partners"/>,
-                <Route component={Page401} exact path="/admin/dashboard"/>
-              ];
-            })()}
-            <Route component={() => <Redirect to="/signin"/>} exact path="/"/>
-            <Route component={Signin} exact path="/signin"/>
-            <Route component={Page404}/>
-          </Switch>
-          <Footer/>
-        </Router>
-      </div>
-    );
-  }
+  return (
+    <div className="app-wrapper">
+      <Router history={history}>
+        <Navbar/>
+        <Switch>
+          {RESOLVED_ROUTES}
+        </Switch>
+        <Footer/>
+      </Router>
+    </div>
+  );
 }
 
 const mapStateToProps = state => ({

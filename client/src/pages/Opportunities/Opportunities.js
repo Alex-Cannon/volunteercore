@@ -23,6 +23,6 @@ const mapStateToProps = state => ({
 
 const OpportunitiesContainer = connect(
   mapStateToProps
-);
+)(Opportunities);
 
 export default OpportunitiesContainer;

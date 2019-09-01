@@ -14,6 +14,9 @@
   .input[name=query] {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    &:active, &:focus {
+      border: 1px solid $text-dark;
+    }
   }
   .input[type=submit] {
     @extend .btn-primary;
