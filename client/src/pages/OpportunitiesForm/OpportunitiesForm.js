@@ -57,7 +57,7 @@ export const OpportunitiesForm = ({ method }) => {
           value="Add Opportunity"
         />  
       </Form>
-      <p>* Request modifications to this form by <ExLink>submitting an issue</ExLink>.</p>
+      <p>* Request modifications to this form by <ExLink to="https://github.com/CodeForFoco/volunteercore/issues/new">submitting an issue</ExLink>.</p>
     </PageWrapper>
   );
 }

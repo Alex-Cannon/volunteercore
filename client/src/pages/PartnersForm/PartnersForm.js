@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ExternalLink as ExLink } from '../../common/ExternalLink/ExternalLink';
 
 import PageWrapper from '../../components/PageWrapper/PageWrapper';
 
@@ -19,7 +20,7 @@ export const PartnersForm = ({ method, partnerForm, setFieldToValue }) => {
     <PageWrapper>
       <h3>Add Partner</h3>
       <p>
-        <Link to="/opportunities">&lt;-- Search Opportunities</Link>
+        <Link to="/opportunities">&lt;-- Search Partners</Link>
       </p>
       <Form onSubmit={ method === 'post' ? 
         (e) => {
@@ -37,6 +38,7 @@ export const PartnersForm = ({ method, partnerForm, setFieldToValue }) => {
           value="Add Partner"
         />
       </Form>
+      <p>* Request modifications to this form by <ExLink to="https://github.com/CodeForFoco/volunteercore/issues/new">submitting an issue</ExLink>.</p>
       { loading ? <p>Loading...</p>: ''}
       { error ? <p className="text-danger">{error.message}</p>: ''}
       { success ? <p className="text-success">Partner Added!</p>: ''}
