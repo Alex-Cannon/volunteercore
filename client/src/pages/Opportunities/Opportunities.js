@@ -10,7 +10,11 @@ export const Opportunities = ({ opportunities }) => {
     <PageWrapper>
       <section>
         <h3>Opportunities</h3>
-        <SearchBar/>
+        <SearchBar
+          addLink="/opportunities/post"
+          placeholder="Search Opportunities"
+          onSubmit={() => {}}
+        />
         <p>Results</p>
       </section>
     </PageWrapper>

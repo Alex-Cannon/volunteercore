@@ -6,6 +6,8 @@ import PageWrapper from '../../components/PageWrapper/PageWrapper';
 import Form from '../../common/Form/Form';
 import Input from '../../common/Input/Input';
 
+import { postOpportunity } from '../../utils/services/opportunity/postOpportunity';
+
 // Methods (POST / PUT)
 
 export const OpportunitiesForm = ({ method }) => {
@@ -15,7 +17,7 @@ export const OpportunitiesForm = ({ method }) => {
       <p>
         <Link to="/opportunities">&lt;-- Search Opportunities</Link>
       </p>
-      <Form>
+      <Form onSubmit={method === 'post' ? postOpportunity : ''}>
         <Input
           label="Partner / Organization"
           name="partner_name"
@@ -51,6 +53,7 @@ export const OpportunitiesForm = ({ method }) => {
         />
         <Input
           type="submit"
+          value="Add Opportunity"
         />  
       </Form>
     </PageWrapper>

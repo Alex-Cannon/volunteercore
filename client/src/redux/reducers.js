@@ -54,8 +54,34 @@ export const opportunites = (opportunities = {}, action) => {
     default:
       break;
   }
+  return newOpportunities;
+}
+
+export const postOpportunities = (formData = {}, action) => {
+  const newFormData = {};
+  Object.assign(newFormData, formData);
+  switch (action.type) {
+    case 'LOADING_GET_OPPORTUNITIES':
+      newFormData.loading = true;
+      break;
+    case 'ERROR_GET_OPPORTUNITIES':
+      newFormData.error = action.error;
+      newFormData.loading = false;
+      newFormData.data = null;
+      break;
+    case 'SUCCESS_GET_OPPORTUNITIES':
+      newFormData.data = action.data;
+      newFormData.loading = false;
+      newFormData.error = null;
+      break;
+    default:
+      break;
+  }
+  return newFormData;
 }
 
 export const reducers = combineReducers({
-  user
+  user,
+  opportunites,
+  postOpportunities
 });

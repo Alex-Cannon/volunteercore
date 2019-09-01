@@ -6,16 +6,16 @@ import { Link } from 'react-router-dom';
 import Form from '../../common/Form/Form';
 import Input from '../../common/Input/Input';
 
-export default () => {
+export default ({ addLink, onSubmit, placeholder }) => {
   return (
     <div className="search-bar">
-      <Form className="search-bar-form">
+      <Form className="search-bar-form" onSubmit={onSubmit}>
         <Input
           flex={4}
           margin="0"
           label={null}
           name="query"
-          placeholder="Search Opportunities"
+          placeholder={placeholder}
         />
         <Input
           flex={1}
@@ -23,7 +23,7 @@ export default () => {
           value="Search"
           margin="0"
         />
-        <Link className="search-bar-post-btn btn-info" to="/opportunities/post">Post</Link>
+        <Link className="search-bar-post-btn btn-info" to={addLink}>Post</Link>
       </Form>
     </div>
   )

@@ -40,16 +40,16 @@ export const errorGetOpportunities = error => ({
   error
 });
 
-export const loadingPostOpportunities = () => ({
+export const loadingPostOpportunity = () => ({
   type: 'LOADING_POST_OPPORTUNITIES'
 });
 
-export const successPostOpportunities = data => ({
+export const successPostOpportunity = data => ({
   type: 'SUCCESS_POST_OPPORTUNITIES',
   data
 });
 
-export const errorPostOpportunities = error => ({
+export const errorPostOpportunity = error => ({
   type: 'ERROR_POST_OPPORTUNITIES',
   error
 });

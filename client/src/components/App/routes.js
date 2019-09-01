@@ -6,6 +6,7 @@ import Signin from '../../pages/Signin/Signin';
 import Page404 from '../../pages/Page404/Page404';
 import Opportunities from '../../pages/Opportunities/Opportunities';
 import OpportunitiesForm from '../../pages/OpportunitiesForm/OpportunitiesForm';
+import { Partners } from '../../pages/Partners/Partners';
 
 export default [{
   path: '/',
@@ -21,6 +22,10 @@ export default [{
   path: '/opportunities/post',
   component: () => <OpportunitiesForm method="post"/>,
   auth: true
-},{
+}, {
+  path: '/partners',
+  component: Partners,
+  auth: true
+}, {
   component: Page404
 }];
