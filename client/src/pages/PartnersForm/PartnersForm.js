@@ -1,12 +1,13 @@
 import React from 'react';
-
 import { Link } from 'react-router-dom';
+
+import { connect } from 'react-redux';
+import { setPartnerFormField } from '../../redux/actions';
 
 import Form from '../../common/Form/Form';
 import Input from '../../common/Input/Input';
 
 import PageWrapper from '../../components/PageWrapper/PageWrapper';
-
 
 export const PartnersForm = () => {
   return (
@@ -29,4 +30,17 @@ export const PartnersForm = () => {
   );
 }
 
-export default PartnersForm;
+const mapStateToProps = state => ({
+  partnerForm: state.partnerForm
+});
+
+const mapDispatchToProps = () => ({
+  setFieldToValue: setPartnerFormField
+});
+
+const PartnersFormContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PartnersForm);
+
+export default PartnersFormContainer;

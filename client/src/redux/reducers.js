@@ -61,15 +61,15 @@ export const postOpportunities = (formData = {}, action) => {
   const newFormData = {};
   Object.assign(newFormData, formData);
   switch (action.type) {
-    case 'LOADING_GET_OPPORTUNITIES':
+    case 'LOADING_POST_OPPORTUNITY':
       newFormData.loading = true;
       break;
-    case 'ERROR_GET_OPPORTUNITIES':
+    case 'ERROR_POST_OPPORTUNITY':
       newFormData.error = action.error;
       newFormData.loading = false;
       newFormData.data = null;
       break;
-    case 'SUCCESS_GET_OPPORTUNITIES':
+    case 'SUCCESS_POST_OPPORTUNITY':
       newFormData.data = action.data;
       newFormData.loading = false;
       newFormData.error = null;
@@ -80,8 +80,37 @@ export const postOpportunities = (formData = {}, action) => {
   return newFormData;
 }
 
+export const partnerForm = (formData = { data: {} }, action) => {
+  const newFormData = {};
+  Object.assign(newFormData, formData);
+  switch (action.type) {
+    case 'SET_PARTNER_FORM_FIELD':
+      newFormData.data[action.field] = action.value;
+      break;
+    case 'LOADING_POST_PARTNER':
+      newFormData.success = false;
+      newFormData.error = null;
+      newFormData.loading = true;
+      break;
+    case 'ERROR_POST_PARTNER':
+      newFormData.success = false;
+      newFormData.error = action.error;
+      newFormData.loading = false;
+      break;
+    case 'SUCCESS_POST_PARTNER':
+      newFormData.success = true;
+      newFormData.error = null;
+      newFormData.loading = false;
+      break;
+    default:
+      break;
+  }
+  return newFormData;
+}
+
 export const reducers = combineReducers({
   user,
   opportunites,
-  postOpportunities
+  postOpportunities,
+  partnerForm
 });

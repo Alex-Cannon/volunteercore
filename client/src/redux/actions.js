@@ -53,3 +53,9 @@ export const errorPostOpportunity = error => ({
   type: 'ERROR_POST_OPPORTUNITIES',
   error
 });
+
+export const setPartnerFormField = (field, value) => ({
+  type: 'SET_PARTNER_FORM_FIELD',
+  field,
+  value
+});
