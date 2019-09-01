@@ -33,7 +33,7 @@ export default [{
   auth: true
 }, {
   path: '/partners/post',
-  component: PartnersForm,
+  component: () => <PartnersForm method="post"/>,
   auth: true
 }, {
   component: Page404

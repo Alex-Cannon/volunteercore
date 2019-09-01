@@ -19,13 +19,17 @@ import Page401 from '../../pages/Page401/Page401';
 // ROUTES
 import ROUTES from './routes.js';
 
-export const App = ({ user, authSuccess, authError }) => {
+export const App = ({ user, authSuccess }) => {
   useEffect(() => {
-    if (isAuth(user) || authError) return;
+    //alert(JSON.stringify(user));
+    if (isAuth(user) || user.error) return;
 
     // Auto Sign-In users with a session cookie
     getUser()
       .then(({ data }) => {
+        if (!data) {
+          return store.dispatch(authError({ message: '401 unauthorized'}));
+        }
         store.dispatch(authSuccess(data));
       });
   });
@@ -59,8 +63,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = () => ({
-  authSuccess,
-  authError
+  authSuccess
 });
 
 const AppContainer = connect(

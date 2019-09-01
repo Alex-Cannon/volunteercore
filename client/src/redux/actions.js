@@ -41,16 +41,16 @@ export const errorGetOpportunities = error => ({
 });
 
 export const loadingPostOpportunity = () => ({
-  type: 'LOADING_POST_OPPORTUNITIES'
+  type: 'LOADING_POST_OPPORTUNITY'
 });
 
 export const successPostOpportunity = data => ({
-  type: 'SUCCESS_POST_OPPORTUNITIES',
+  type: 'SUCCESS_POST_OPPORTUNITY',
   data
 });
 
 export const errorPostOpportunity = error => ({
-  type: 'ERROR_POST_OPPORTUNITIES',
+  type: 'ERROR_POST_OPPORTUNITY',
   error
 });
 
@@ -58,4 +58,17 @@ export const setPartnerFormField = (field, value) => ({
   type: 'SET_PARTNER_FORM_FIELD',
   field,
   value
+});
+
+export const loadingPostPartner = () => ({
+  type: 'LOADING_POST_PARTNER'
+});
+
+export const successPostPartner = () => ({
+  type: 'SUCCESS_POST_PARTNER'
+});
+
+export const errorPostPartner = error => ({
+  type: 'ERROR_POST_PARTNER',
+  error
 });

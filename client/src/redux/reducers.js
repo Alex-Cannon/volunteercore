@@ -12,6 +12,7 @@ export const user = (user = { username: '', password: ''}, action) => {
       break;
     case 'AUTH_LOADING':
       newUser.loading = true;
+      newUser.error = null;
       break;
     case 'AUTH_SUCCESS':
       newUser.data = action.data;
