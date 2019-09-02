@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 
 import PageWrapper from '../../components/PageWrapper/PageWrapper';
 import SearchBar from '../../components/SearchBar/SearchBar';
+import PartnerCard from '../../components/PartnerCard/PartnerCard';
 
 import getPartners from '../../utils/services/partner/getPartners';
 
@@ -33,7 +34,7 @@ export const Partners = ({ partnerSearch, setSearchField }) => {
         setValue={(val) => dispatch(setSearchField("search", val))}
       />
       {data ? data.items.map(item => {
-        return <p>{item.name}</p>
+        return <PartnerCard {...item} />
       }) : ''}
     </PageWrapper>
   )

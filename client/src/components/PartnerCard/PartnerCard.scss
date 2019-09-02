@@ -1,0 +1,14 @@
+@import '../../utils/variables';
+
+.partner-card {
+  margin-bottom: $pad-1;
+  padding: $pad-1;
+  border: 1px solid $text-mid;
+  border-radius: 5px;
+}
+
+.partner-card-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

@@ -13,20 +13,24 @@
 }
 
 .btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-block;
+  text-align: center;
+  padding: .5em .75em;
+  margin-right: .5em;
+  min-width: 80px;
   border-radius: 5px;
   border: 1px solid $text-mid;
   background: $text-mid;
   text-decoration: none;
-  padding: .5em .75em;
   transition: 0.2s;
   &:hover {
     background: darken($text-mid, 10%);
     border: 1px solid darken($text-mid, 10%);
     text-decoration: none;
     cursor: pointer;
+  }
+  &:last-of-type {
+    margin-right: 0;
   }
 }
 
@@ -50,6 +54,28 @@
   &:hover {
     background-color: lighten($text-dark, 10%);
     border: 1px solid lighten($text-dark, 10%);
+  }
+}
+
+.btn-warning {
+  @extend .btn;
+  background: $text-warning;
+  color: $text-light;
+  border: 1px solid $text-warning;
+  &:hover {
+    background-color: darken($text-warning, 10%);
+    border: 1px solid darken($text-warning, 10%);
+  }
+}
+
+.btn-danger {
+  @extend .btn;
+  background: $text-danger;
+  color: $text-light;
+  border: 1px solid $text-danger;
+  &:hover {
+    background-color: darken($text-danger, 10%);
+    border: 1px solid darken($text-danger, 10%);
   }
 }
 
