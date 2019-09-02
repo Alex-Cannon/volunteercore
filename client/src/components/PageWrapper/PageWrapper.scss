@@ -1,5 +1,8 @@
 @import '../../utils/variables';
 
 .page-wrapper {
-  padding: $pad-2;
+  padding: $pad-1;
+  @include device-up('phone') {
+    padding: $pad-2;
+  }
 }

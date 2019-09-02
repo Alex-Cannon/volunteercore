@@ -20,7 +20,7 @@ export const PartnersForm = ({ method, partnerForm, setFieldToValue }) => {
     <PageWrapper>
       <h3>Add Partner</h3>
       <p>
-        <Link to="/opportunities">&lt;-- Search Partners</Link>
+        <Link to="/partners">&lt;-- Search Partners</Link>
       </p>
       <Form onSubmit={ method === 'post' ? 
         (e) => {

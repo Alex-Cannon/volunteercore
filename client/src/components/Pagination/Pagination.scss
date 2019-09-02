@@ -1,0 +1,29 @@
+@import '../../utils/variables';
+@import '../../utils/common';
+
+.pagination-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  button, .btn {
+    @extend .btn-info;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    width: 2em;
+    height: 2em;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    font-size: 1rem;
+    &:first-of-type {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+    &:last-of-type {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+}

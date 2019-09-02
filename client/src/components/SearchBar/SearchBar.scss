@@ -26,6 +26,6 @@
 
 .search-bar-post-btn {
   flex: 1;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
 }

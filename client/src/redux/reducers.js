@@ -112,7 +112,7 @@ export const partnerForm = (formData = { data: {} }, action) => {
 export const partnerSearch = (partnerSearch = {
   options: {
     page: 1,
-    per_page: 10,
+    per_page: 1,
     search: ''
   }}, action) => {
   const newPartnerSearch = {};
