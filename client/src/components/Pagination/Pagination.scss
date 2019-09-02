@@ -5,7 +5,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  button, .btn {
+  .page-btn {
     @extend .btn-info;
     display: flex;
     align-items: center;
@@ -26,4 +26,9 @@
       border-bottom-right-radius: 5px;
     }
   }
+}
+
+.pagination-current-page {
+  background-color: darken($emphasis, 25%) !important;
+  border: 1px solid darken($emphasis, 25%) !important;
 }

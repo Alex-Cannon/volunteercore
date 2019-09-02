@@ -58,12 +58,11 @@ export const errorPostOpportunity = error => ({
 });
 
 // Post partner
-export const setPartnerFormField = (field, value) => {
-  return {
+export const setPartnerFormField = (field, value) => ({
   type: 'SET_PARTNER_FORM_FIELD',
   field,
   value
-}};
+});
 
 export const loadingPostPartner = () => ({
   type: 'LOADING_POST_PARTNER'

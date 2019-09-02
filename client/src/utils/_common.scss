@@ -79,6 +79,16 @@
   }
 }
 
+.btn-disabled {
+  @extend .btn;
+  color: $text-dark !important;
+  background: darken($text-mid, 15%) !important;
+  border: 1px solid darken($text-mid, 15%) !important;
+  &:hover {
+    cursor: not-allowed !important;
+  }
+}
+
 ol, ul {
   margin-left: 1em;
   li {

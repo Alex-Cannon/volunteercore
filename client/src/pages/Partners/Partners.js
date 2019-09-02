@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
 import { setPartnerSearchField } from '../../redux/actions';
 const dispatch = store.dispatch;
 
-export const Partners = ({ partnerSearch, setSearchField, location }) => {
+export const Partners = ({ partnerSearch, setPartnerSearchField, location }) => {
   const { data, error, loading } = partnerSearch;
   let { options } = partnerSearch;
   options = { ...options, ...queryToObject(location.search) };
@@ -35,16 +35,18 @@ export const Partners = ({ partnerSearch, setSearchField, location }) => {
           getPartners(options);
         }}
         value={options.search}
-        setValue={(val) => dispatch(setSearchField("search", val))}
+        setValue={(val) => dispatch(setPartnerSearchField("search", val))}
       />
       {loading ? <p>Loading...</p> : ''}
       {error ? <p>{error.message}</p> : ''}
       {data ? data.items.map((item, i) => {
         return <PartnerCard {...item} key={item.name + i + 'partners'} />
       }) : ''}
-      <Pagination {...data} nextPageAction={(pageNum) => {
-        dispatch(setSearchField("page", pageNum));
-        getPartners(options);
+      <Pagination nextPageAction={(pageNum) => {
+        if (pageNum === options.pageNum) return;
+        const newOptions = options;
+        newOptions.page = pageNum;
+        getPartners(newOptions);
       }}/>
     </PageWrapper>
   )
@@ -55,7 +57,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = () => ({
-  setSearchField: setPartnerSearchField
+  setPartnerSearchField
 });
 
 const PartnersContainer = connect(
