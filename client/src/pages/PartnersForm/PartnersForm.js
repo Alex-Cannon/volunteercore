@@ -8,25 +8,30 @@ import Form from '../../common/Form/Form';
 import Input from '../../common/Input/Input';
 
 import postPartner from '../../utils/services/partner/postPartner';
+import putPartner from '../../utils/services/partner/putPartner';
 
 import { store } from '../../redux/store';
 import { connect } from 'react-redux';
 import { setPartnerFormField } from '../../redux/actions';
 const dispatch = store.dispatch;
 
-export const PartnersForm = ({ method, partnerForm, setFieldToValue }) => {
-  const { data, loading, success, error } = partnerForm;
+export const PartnersForm = ({ location, method, partnerForm, setFieldToValue }) => {
+  const { loading, success, error } = partnerForm;
+  let data = partnerForm;
+  data.id = location.params.id;
+  console.log(location);
+
   return (
     <PageWrapper>
       <h3>Add Partner</h3>
       <p>
         <Link to="/partners">&lt;-- Search Partners</Link>
       </p>
-      <Form onSubmit={ method === 'post' ? 
-        (e) => {
-          e.preventDefault();
-          postPartner(data);
-        }: () =>{}}>
+      <Form onSubmit={ (e) => {
+        e.preventDefault();
+        if (method === 'post') postPartner(data);
+        if (method === 'put') putPartner(data);
+      }}>
         <Input
           label="Partner Name"
           name="name"

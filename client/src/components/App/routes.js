@@ -36,5 +36,9 @@ export default [{
   component: () => <PartnersForm method="post"/>,
   auth: true
 }, {
+  path: '/partners/put/:id',
+  component: () => <PartnersForm method="put"/>,
+  auth: true
+}, {
   component: Page404
 }];

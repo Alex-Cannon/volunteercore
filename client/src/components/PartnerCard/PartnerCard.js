@@ -1,13 +1,17 @@
 import React from 'react';
 import './PartnerCard.scss';
 
-export const PartnerCard = ({ name, opportunity_count }) => {
+import { Link } from 'react-router-dom';
+
+export const PartnerCard = ({ name, opportunity_count, id }) => {
   return (
     <div className="partner-card">
       <div className="partner-card-header">
         <h5>{name}</h5>
-        <div>
-          <button className="btn-warning">Edit</button>
+        <div className="partner-card-buttons">
+          <Link className="btn-warning" to={`/partners/put/${id}`}>
+            Edit
+          </Link>
           <button className="btn-danger">Delete</button>
         </div>
       </div>
