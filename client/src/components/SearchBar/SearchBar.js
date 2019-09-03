@@ -25,7 +25,7 @@ export default ({ addLink, onSubmit, placeholder, value, setValue }) => {
           value="Search"
           margin="0"
         />
-        <Link className="search-bar-post-btn btn-info" to={addLink}>Post</Link>
+        <Link className="search-bar-post-btn btn btn-info" to={addLink}>Post</Link>
       </Form>
     </div>
   )

@@ -9,10 +9,10 @@ export const PartnerCard = ({ name, opportunity_count, id }) => {
       <div className="partner-card-header">
         <h5>{name}</h5>
         <div className="partner-card-buttons">
-          <Link className="btn-warning" to={`/partners/put/${id}`}>
+          <Link className="btn btn-warning" to={`/partners/put/${id}`}>
             Edit
           </Link>
-          <button className="btn-danger">Delete</button>
+          <button className="btn btn-danger">Delete</button>
         </div>
       </div>
       <p>{opportunity_count} opportunities open</p>

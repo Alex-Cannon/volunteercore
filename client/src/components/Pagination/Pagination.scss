@@ -6,6 +6,7 @@
   flex-wrap: wrap;
   justify-content: center;
   .page-btn {
+    @extend .btn;
     @extend .btn-info;
     display: flex;
     align-items: center;
