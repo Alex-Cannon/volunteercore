@@ -1,9 +1,11 @@
 @import '../../utils/variables';
+@import '../../utils/common';
 
 .input-group {
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin-bottom: 1rem;
 
   label {
     margin-left: .4em;
@@ -22,17 +24,8 @@
     outline: none;
   }
   &[type=submit] {
-    background-color: $emphasis;
-    border: 1px solid $emphasis;
-    color: $text-light;
-    transition: 0.2s ease-in-out;
-    &:hover {
-      cursor: pointer;
-      background-color: darken($emphasis, 10%);
-    }
-    &:active, &:focus {
-      background-color: darken($emphasis, 5%);
-      border: 1px solid darken($emphasis, 50%);
-    }
+    @extend .btn;
+    @extend .btn-info;
+    margin-right: 0;
   }
 }

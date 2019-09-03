@@ -6,9 +6,9 @@ import Signin from '../../pages/Signin/Signin';
 import Help from '../../pages/Help/Help';
 import Page404 from '../../pages/Page404/Page404';
 import Opportunities from '../../pages/Opportunities/Opportunities';
-import OpportunitiesForm from '../../pages/OpportunitiesForm/OpportunitiesForm';
+import OpportunitiesForm from '../../pages/OpportunityPages/OpportunitiesForm';
 import Partners from '../../pages/Partners/Partners';
-import PartnersForm from '../../pages/PartnersForm/PartnersForm';
+import PostPartner from '../../pages/PartnerPages/PostPartner';
 
 export default [{
   path: '/',
@@ -33,11 +33,7 @@ export default [{
   auth: true
 }, {
   path: '/partners/post',
-  component: () => <PartnersForm method="post"/>,
-  auth: true
-}, {
-  path: '/partners/put/:id',
-  component: () => <PartnersForm method="put"/>,
+  component: PostPartner,
   auth: true
 }, {
   component: Page404

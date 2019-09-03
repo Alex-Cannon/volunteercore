@@ -38,6 +38,7 @@ export const SignIn = ({ user, setUsername, setPassword }) => {
           />
           <Input
             type="submit"
+            value="Sign In"
           />
         </Form>
         <div className="text-center">
