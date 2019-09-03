@@ -82,8 +82,9 @@ export const postOpportunities = (formData = {}, action) => {
 }
 
 export const partnerForm = (formData = { data: {} }, action) => {
-  const newFormData = {};
+  let newFormData = {};
   Object.assign(newFormData, formData);
+
   switch (action.type) {
     case 'SET_PARTNER_FORM_FIELD':
       newFormData.data[action.field] = action.value;

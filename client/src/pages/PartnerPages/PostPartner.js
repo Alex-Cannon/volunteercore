@@ -20,6 +20,8 @@ export const PostPartnerPage = ({ formData }) => {
       </p>
       <PartnerForm
         submitData={postPartner}
+        submitText="Add Partner"
+        submitClass="btn-info"
       />
       <p>* Request modifications to this form by <ExLink to="https://github.com/CodeForFoco/volunteercore/issues/new">submitting an issue</ExLink>.</p>
       { loading ? <p>Loading...</p>: ''}

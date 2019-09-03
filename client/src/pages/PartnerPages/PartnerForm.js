@@ -8,34 +8,36 @@ import { connect } from 'react-redux';
 import { setPartnerFormField } from '../../redux/actions';
 const dispatch = store.dispatch;
 
-export const PartnerForm = ({ formData, setField, submitData }) => {
+export const PartnerForm = ({ formData, setField, submitData, submitText, submitClass }) => {
+  const data = formData && formData.data ? formData.data : {};
+
   return (
     <Form onSubmit={(e) => {
       e.preventDefault();
-      submitData();
+      submitData(data);
     }}>
       <Input
         label="Partner Name"
         name="name"
         setValue={(val) => dispatch(setField("name", val))}
-        value={formData.name || ""}
+        value={data.name || ""}
       />
       <Input
-        className="btn-danger"
+        inputClass={submitClass}
         type="submit"
-        value="Add Partner"
+        value={submitText || 'Submit'}
       />
     </Form>
   );
 }
 
-const mapStateToProps = state => ({
-  formData: state.partnerForm
-});
+const mapStateToProps = state => {
+  return { formData: state.partnerForm };
+}
 
-const mapDispatchToProps = () => ({
-  setField: setPartnerFormField
-});
+const mapDispatchToProps = () => {
+  return { setField: setPartnerFormField };
+}
 
 const PartnerFormContainer = connect(
   mapStateToProps,
