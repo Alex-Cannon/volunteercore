@@ -27,7 +27,7 @@ export const signOut = () => ({
   type: 'SIGN_OUT'
 });
 
-// Get opportunity
+// GET Opportunity
 export const loadingGetOpportunities = () => ({
   type: 'LOADING_GET_OPPORTUNITIES'
 });
@@ -42,7 +42,7 @@ export const errorGetOpportunities = error => ({
   error
 });
 
-// Post opportunity
+// POST Opportunity
 export const loadingPostOpportunity = () => ({
   type: 'LOADING_POST_OPPORTUNITY'
 });
@@ -57,7 +57,11 @@ export const errorPostOpportunity = error => ({
   error
 });
 
-// Post partner
+// POST Partner
+export const resetPartnerForm = () => ({
+  type: 'RESET_POST_PARTNER'
+});
+
 export const setPartnerFormField = (field, value) => ({
   type: 'SET_PARTNER_FORM_FIELD',
   field,
@@ -77,7 +81,7 @@ export const errorPostPartner = error => ({
   error
 });
 
-// Partner search
+// GET Partners
 export const setPartnerSearchField = (field, value) => ({
   type: 'SET_PARTNER_SEARCH_FIELD',
   field,
@@ -96,4 +100,23 @@ export const successPartnerSearch = data => ({
 export const errorPartnerSearch = error => ({
   type: 'ERROR_PARTNER_SEARCH',
   error
+});
+
+// GET Partner
+export const loadingGetPartner = () => ({
+  type: 'LOADING_GET_PARTNER'
+});
+
+export const successGetPartner = data => ({
+  type: 'SUCCESS_GET_PARTNER',
+  data
+});
+
+export const errorGetPartner = error => ({
+  type: 'ERROR_GET_PARTNER',
+  error
+});
+
+export const resetGetPartner = () => ({
+  type: 'RESET_GET_PARTNER'
 });

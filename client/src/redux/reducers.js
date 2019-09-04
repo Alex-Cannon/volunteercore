@@ -59,7 +59,7 @@ export const opportunites = (opportunities = {}, action) => {
 }
 
 export const postOpportunities = (formData = {}, action) => {
-  const newFormData = {};
+  let newFormData = {};
   Object.assign(newFormData, formData);
   switch (action.type) {
     case 'LOADING_POST_OPPORTUNITY':
@@ -81,6 +81,7 @@ export const postOpportunities = (formData = {}, action) => {
   return newFormData;
 }
 
+// POST / PUT Partner
 export const partnerForm = (formData = { data: {} }, action) => {
   let newFormData = {};
   Object.assign(newFormData, formData);
@@ -104,12 +105,16 @@ export const partnerForm = (formData = { data: {} }, action) => {
       newFormData.error = null;
       newFormData.loading = false;
       break;
+    case 'RESET_POST_PARTNER':
+      newFormData = {};
+      break;
     default:
       break;
   }
   return newFormData;
 }
 
+// GET Partners
 export const partnerSearch = (partnerSearch = {
   options: {
     page: 1,
@@ -144,10 +149,40 @@ export const partnerSearch = (partnerSearch = {
   return newPartnerSearch;
 };
 
+export const getPartner = (partnerData = {}, action) => {
+  let newPartnerData = {};
+  Object.assign(newPartnerData, partnerData);
+  
+  switch (action.type) {
+    case 'LOADING_GET_PARTNER':
+      newPartnerData.success = false;
+      newPartnerData.error = null;
+      newPartnerData.loading = true;
+      break;
+    case 'ERROR_GET_PARTNER':
+      newPartnerData.success = false;
+      newPartnerData.error = action.error;
+      newPartnerData.loading = false;
+      break;
+    case 'SUCCESS_GET_PARTNER':
+      newPartnerData.success = action.data;
+      newPartnerData.error = null;
+      newPartnerData.loading = false;
+      break;
+    case 'RESET_GET_PARTNER':
+      newPartnerData = {};
+      break;
+    default:
+      break;
+  }
+  return newPartnerData;
+}
+
 export const reducers = combineReducers({
   user,
   opportunites,
   postOpportunities,
   partnerForm,
-  partnerSearch
+  partnerSearch,
+  getPartner
 });

@@ -4,15 +4,17 @@ import { store } from '../../../redux/store';
 import { loadingPostPartner, successPostPartner, errorPostPartner } from '../../../redux/actions';
 const dispatch = store.dispatch;
 
-export const putPartner = (data) => {
+export const putPartner = (data, callback = ()=>{}) => {
   dispatch(loadingPostPartner());
 
   axios.put(`/api/partners/${data.id}`, data)
-    .then(() => {
-      dispatch(successPostPartner())
+    .then(({ data }) => {
+      if (!callback) dispatch(successPostPartner());
+      callback(data, null);
     })
     .catch(error => {
-      dispatch(errorPostPartner(error));
+      if (!callback) dispatch(errorPostPartner(error));
+      callback(null, error);
     });
 }
 
