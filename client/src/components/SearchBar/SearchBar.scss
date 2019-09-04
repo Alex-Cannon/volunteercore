@@ -11,8 +11,11 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  .btn {
+    margin: 0 !important;
+  }
   .input[name=query] {
-    flex: 3;
+    flex: 4;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     &:active, &:focus {
@@ -21,9 +24,14 @@
   }
   .input[type=submit] {
     @extend .btn-primary;
-    flex-shrink: 1;
+    flex: 1;
     border-radius: 0;
+    min-width: 80px;
   }
+}
+
+.search-bar-query-input-group {
+  flex: 4;
 }
 
 .search-bar-post-btn {

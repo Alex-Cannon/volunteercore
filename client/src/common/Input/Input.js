@@ -1,9 +1,9 @@
 import React from 'react';
 import './Input.scss';
 
-export default ({ inputClass, type, label, name, placeholder, required, setValue, value}) => {
+export default ({ inputGroupClass, inputClass, type, label, name, placeholder, required, setValue, value}) => {
   return (
-    <div className="input-group">
+    <div className={inputGroupClass || "input-group"}>
       {(() => {
         if (type === 'submit') return '';
         if (label === null) return '';
