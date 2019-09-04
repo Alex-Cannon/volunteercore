@@ -24,7 +24,6 @@
   display: inline-block;
   height: 2rem;
   min-width: 80px;
-  margin-right: .5em;
   padding: 0 .5em;
   border-radius: 5px;
   background: $text-mid;
@@ -38,6 +37,9 @@
     background: darken($text-mid, 10%);
     text-decoration: none !important;
     cursor: pointer;
+  }
+  &+ .btn {
+    margin-left: .5em;
   }
 }
 

@@ -12,6 +12,7 @@
   justify-content: center;
   width: 100%;
   .input[name=query] {
+    flex: 3;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     &:active, &:focus {
@@ -20,6 +21,7 @@
   }
   .input[type=submit] {
     @extend .btn-primary;
+    flex-shrink: 1;
     border-radius: 0;
   }
 }

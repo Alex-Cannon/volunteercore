@@ -9,6 +9,7 @@ import Opportunities from '../../pages/Opportunities/Opportunities';
 import OpportunitiesForm from '../../pages/OpportunityPages/OpportunitiesForm';
 import Partners from '../../pages/Partners/Partners';
 import PostPartner from '../../pages/PartnerPages/PostPartner';
+import PutPartnerPage from '../../pages/PartnerPages/PutPartnersForm';
 
 export default [{
   path: '/',
@@ -34,6 +35,10 @@ export default [{
 }, {
   path: '/partners/post',
   component: PostPartner,
+  auth: true
+}, {
+  path: '/partners/put/:id',
+  component: PutPartnerPage,
   auth: true
 }, {
   component: Page404

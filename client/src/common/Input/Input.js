@@ -10,7 +10,7 @@ export default ({ inputClass, type, label, name, placeholder, required, setValue
         return <label>{(required ? '* ' : '') + (label || placeholder || 'Field')}</label>;
       })()}
       <input
-        className={"input" || inputClass}
+        className={inputClass || "input"}
         name={name || label || placeholder || 'undefined'}
         placeholder={placeholder || ("Enter " + (label || "Field"))}
         type={type || "text"}
