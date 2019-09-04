@@ -120,3 +120,13 @@ export const errorGetPartner = error => ({
 export const resetGetPartner = () => ({
   type: 'RESET_GET_PARTNER'
 });
+
+// DELETE Partner
+export const errorDeletePartner = () => ({
+  type: 'ERROR_DELETE_PARTNER'
+});
+
+export const successDeletePartner = id => ({
+  type: 'SUCCESS_DELETE_PARTNER',
+  id
+});

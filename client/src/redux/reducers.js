@@ -143,6 +143,12 @@ export const partnerSearch = (partnerSearch = {
       newPartnerSearch.error = null;
       newPartnerSearch.loading = false;
       break;
+    case 'SUCCESS_DELETE_PARTNER':
+      if (!newPartnerSearch.data) return;
+      newPartnerSearch.data.items = newPartnerSearch.data.items.filter(item => {
+        return item.id !== action.id;
+      });
+      break;
     default:
       break;
   }

@@ -3,6 +3,8 @@ import './PartnerCard.scss';
 
 import { Link } from 'react-router-dom';
 
+import deletePartner from '../../utils/services/partner/deletePartner';
+
 export const PartnerCard = ({ name, opportunity_count, id }) => {
   return (
     <div className="partner-card">
@@ -12,7 +14,7 @@ export const PartnerCard = ({ name, opportunity_count, id }) => {
           <Link className="btn btn-warning" to={`/partners/put/${id}`}>
             Edit
           </Link>
-          <button className="btn btn-danger">Delete</button>
+          <button className="btn btn-danger" onClick={() => deletePartner(id)}>Delete</button>
         </div>
       </div>
       <p>{opportunity_count} opportunities open</p>
