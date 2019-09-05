@@ -3,9 +3,9 @@ import React from 'react';
 import Form from '../../common/Form/Form';
 import Input from '../../common/Input/Input';
 
-import { store } from '../../redux/store';
+import { store } from '../../utils/services/store';
 import { connect } from 'react-redux';
-import { setPartnerFormField } from '../../redux/actions';
+import { setPartnerFormField } from '../../utils/services/partner/partnerActions';
 const dispatch = store.dispatch;
 
 export const PartnerForm = ({ formData, setField, submitData, submitText, submitClass }) => {

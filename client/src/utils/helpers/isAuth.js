@@ -1,5 +1,5 @@
 export const isAuth = (user) => {
-  if (user && user.data && user.data.id && !isNaN(user.data.id)) {
+  if (user && user.result && user.result.id && !isNaN(user.result.id)) {
     return true;
   }
   return false;

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-import { store } from '../../../redux/store';
-import { loadingPostOpportunity, successPostOpportunity, errorPostOpportunity } from '../../../redux/actions';
+import { store } from '../store';
+import { loadingPostOpportunity, setResultPostOpportunity, setErrorPostOpportunity } from './opportunityActions';
 const dispatch = store.dispatch;
 
 export const postOpportunity = (data) => {
@@ -11,9 +11,11 @@ export const postOpportunity = (data) => {
   
   axios.post('/api/opportunities', data, HEADERS)
     .then(({ data }) => {
-      dispatch(successPostOpportunity(data));
+      dispatch(setResultPostOpportunity(data));
     })
     .catch(error => {
-      dispatch(errorPostOpportunity(error));
+      dispatch(setErrorPostOpportunity(error));
     });
 }
+
+export default postOpportunity;

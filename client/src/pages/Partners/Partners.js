@@ -8,9 +8,9 @@ import Pagination from '../../components/Pagination/Pagination';
 import queryToObject from '../../utils/helpers/queryToObject';
 import getPartners from '../../utils/services/partner/getPartners';
 
-import { store } from '../../redux/store';
+import { store } from '../../utils/services/store';
 import { connect } from 'react-redux';
-import { setPartnerSearchField } from '../../redux/actions';
+import { setPartnerSearchField } from '../../utils/services/partner/partnerActions';
 const dispatch = store.dispatch;
 
 export const Partners = ({ partnerSearch, setPartnerSearchField, location }) => {

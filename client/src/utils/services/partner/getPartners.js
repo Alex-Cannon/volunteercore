@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-import { store } from '../../../redux/store';
-import { loadingPartnerSearch, errorPartnerSearch, successPartnerSearch } from '../../../redux/actions';
+import { store } from '../store';
+import { loadingPartnerSearch, errorPartnerSearch, successPartnerSearch } from './partnerActions';
 const dispatch = store.dispatch;
 
 export const getPartners = ({ search, page, per_page }) => {

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-import { store } from '../../../redux/store';
-import { loadingPostPartner, successPostPartner, errorPostPartner } from '../../../redux/actions';
+import { store } from '..//store';
+import { loadingPostPartner, successPostPartner, errorPostPartner } from './partnerActions';
 const dispatch = store.dispatch;
 
 export const putPartner = (data, callback) => {

@@ -1,33 +1,34 @@
 import axios from 'axios';
 
-import { store } from '../../../redux/store';
-import { authLoading, authError, authSuccess } from '../../../redux/actions';
+import { store } from '../store';
+import { signInLoading, setSignInError, setSignInResult } from './authActions';
 import { getUser } from '../user/getUser';
 const { dispatch } = store;
 
-export const signin = (username, password, e) => {
-  if (e) e.preventDefault();
-  const Authorization = 'Basic ' + window.btoa(username + ':' + password);
+export const signin = (username, password) => {
+  const HEADERS = { headers: {
+    Authorization: 'Basic ' + window.btoa(username + ':' + password)
+  }};
 
-  dispatch(authLoading());
+  dispatch(signInLoading());
 
   // Create session
-  axios.post('/api/auth/login', {}, { headers: { Authorization }})
+  axios.post('/api/auth/login', {}, HEADERS)
     .then(({ status, error }) => {
       if (status < 200 || status > 299) {
-        dispatch(authError(error));
+        dispatch(setSignInError(error));
       }
 
       // Retrieve user data
       getUser()
         .then(({ data }) => {
-          dispatch(authSuccess(data));
+          dispatch(setSignInResult(data));
         })
         .catch((err) => {
-          dispatch(authError(err));
+          dispatch(setSignInError(err));
         });
     })
     .catch((err) => {
-      dispatch(authError(err));
+      dispatch(setSignInError(err));
     });
 }

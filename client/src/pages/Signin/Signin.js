@@ -8,14 +8,17 @@ import Form from '../../common/Form/Form';
 import Input from '../../common/Input/Input';
 
 import { connect } from 'react-redux';
-import { setUsername, setPassword } from '../../redux/actions';
+import { setSignInFormData } from '../../utils/services/authentication/authActions';
 
 import { signin } from '../../utils/services/authentication/signin';
 
-export const SignIn = ({ user, setUsername, setPassword }) => {
-  if (user.data && user.data.id) {
+export const SignIn = ({ user, setFormData }) => {
+  const { formData } = user;
+  if (user.result && user.result.id) {
     return <Redirect to="/opportunities"/>;
   }
+
+  console.log(user);
   
   return (
     <PageWrapper>
@@ -24,15 +27,20 @@ export const SignIn = ({ user, setUsername, setPassword }) => {
         <p>Sign in to access Volunteers For America Opportunities.</p>
       </div>
       <Card>
-        <Form onSubmit={(e) => signin(user.username, user.password, e)}>
+        <Form onSubmit={(e) => {
+          e.preventDefault();
+          signin(formData.username, formData.password);
+        }}>
           <Input
             label="Username"
-            setValue={setUsername}
+            name="username"
+            setValue={(username => setFormData({ username }))}
             value={user.username}
           />
           <Input
             label="Password"
-            setValue={setPassword}
+            name="password"
+            setValue={(password) => setFormData({ password })}
             type="password"
             value={user.password}
           />
@@ -66,8 +74,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  setUsername,
-  setPassword
+  setFormData: setSignInFormData
 };
 
 const SignInContainer = connect(

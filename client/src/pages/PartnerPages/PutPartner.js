@@ -4,11 +4,11 @@ import PageWrapper from '../../components/PageWrapper/PageWrapper';
 import { Link } from 'react-router-dom';
 import { ExternalLink as ExLink } from '../../common/ExternalLink/ExternalLink';
 
-import { store } from '../../redux/store';
+import { store } from '../../utils/services/store';
 import { connect } from 'react-redux';
 import PartnerForm from './PartnerForm.js';
 
-import { setPartnerFormField, successGetPartner, errorGetPartner } from '../../redux/actions';
+import { setPartnerFormField, successGetPartner, errorGetPartner } from '../../utils/services/partner/partnerActions';
 
 import putPartner from '../../utils/services/partner/putPartner';
 import getPartner from '../../utils/services/partner/getPartner';

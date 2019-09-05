@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-import { store } from '../../../redux/store';
-import { errorDeletePartner, successDeletePartner } from '../../../redux/actions';
+import { store } from '../store';
+import { errorDeletePartner, successDeletePartner } from './partnerActions';
 const dispatch = store.dispatch;
 
 export const deletePartner = (id, callback) => {
