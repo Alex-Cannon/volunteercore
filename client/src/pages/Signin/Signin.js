@@ -17,8 +17,6 @@ export const SignIn = ({ user, setFormData }) => {
   if (user.result && user.result.id) {
     return <Redirect to="/opportunities"/>;
   }
-
-  console.log(user);
   
   return (
     <PageWrapper>
