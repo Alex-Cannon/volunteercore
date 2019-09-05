@@ -20,7 +20,7 @@ export default [{
 }, {
   path: '/help',
   component: Help
-}, /*{
+}, {
   path: '/opportunities',
   component: Opportunities,
   auth: true
@@ -40,6 +40,6 @@ export default [{
   path: '/partners/put/:id',
   component: PutPartner,
   auth: true
-}, */{
+}, {
   component: Page404
 }];

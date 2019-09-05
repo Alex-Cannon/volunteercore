@@ -1,11 +1,13 @@
 import { createStore, combineReducers } from 'redux';
 
-import { opportunityList } from './opportunity/opportunityReducers';
 import { user } from './authentication/authReducers';
+import { opportunityList } from './opportunity/opportunityReducers';
+import { partnerList } from './partner/partnerReducers';
 
 export const reducers = combineReducers({
   user,
-  opportunityList
+  opportunityList,
+  partnerList
 });
 
 export function configureStore(initialState = {}) {
