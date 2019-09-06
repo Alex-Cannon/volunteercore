@@ -1,18 +1,18 @@
 import axios from 'axios';
 
 import { store } from '../store';
-import { loadingPostPartner, successPostPartner, errorPostPartner } from './partnerActions';
+import { postPartnerLoading, setPostPartnerResult, setPostPartnerError } from './partnerActions';
 const dispatch = store.dispatch;
 
 export const postPartner = (data) => {
-  dispatch(loadingPostPartner());
+  dispatch(postPartnerLoading());
 
   axios.post('/api/partners', data)
     .then(() => {
-      dispatch(successPostPartner())
+      dispatch(setPostPartnerResult())
     })
     .catch(error => {
-      dispatch(errorPostPartner(error));
+      dispatch(setPostPartnerError(error));
     });
 }
 

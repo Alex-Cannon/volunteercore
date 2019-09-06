@@ -1,19 +1,19 @@
 import axios from 'axios';
 
 import { store } from '..//store';
-import { loadingPostPartner, successPostPartner, errorPostPartner } from './partnerActions';
+import { putPartnerLoading, setPutPartnerResult, setPutPartnerError } from './partnerActions';
 const dispatch = store.dispatch;
 
 export const putPartner = (data, callback) => {
-  dispatch(loadingPostPartner());
+  dispatch(putPartnerLoading());
 
   axios.put(`/api/partners/${data.id}`, data)
     .then(({ data }) => {
-      if (!callback) return dispatch(successPostPartner());
+      if (!callback) return dispatch(setPutPartnerResult());
       callback(data, null);
     })
     .catch(error => {
-      if (!callback) return dispatch(errorPostPartner(error));
+      if (!callback) return dispatch(setPutPartnerError(error));
       callback(null, error);
     });
 }

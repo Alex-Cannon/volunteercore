@@ -8,7 +8,7 @@ import { store } from '../../utils/services/store';
 import { connect } from 'react-redux';
 import PartnerForm from './PartnerForm.js';
 
-import { setPostPartnerFormField, setPartnerResult, setPartnerError } from '../../utils/services/partner/partnerActions';
+import { setPostPartnerFormData, setGetPartnerResult, setGetPartnerError } from '../../utils/services/partner/partnerActions';
 
 import putPartner from '../../utils/services/partner/putPartner';
 import getPartner from '../../utils/services/partner/getPartner';
@@ -16,10 +16,10 @@ const dispatch = store.dispatch;
 
 export class PutPartner extends Component {
   componentDidMount() {
-    const { match, setField, setPartnerResult, setPartnerError } = this.props;
+    const { match, setField, setGetPartnerResult, setGetPartnerError } = this.props;
     getPartner(match.params.id, (data, error) => {
-      if (error) return dispatch(setPartnerError(error));
-      dispatch(setPartnerResult({}));
+      if (error) return dispatch(setGetPartnerError(error));
+      dispatch(setGetPartnerResult({}));
       Object.keys(data).forEach(key => {
         dispatch(setField(key, data[key]));
       });
@@ -61,9 +61,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = () => ({
-  setField: setPostPartnerFormField,
-  setPartnerResult,
-  setPartnerError
+  setField: setPostPartnerFormData,
+  setGetPartnerResult,
+  setGetPartnerError
 });
 
 const PutPartnerPageContainer = connect(

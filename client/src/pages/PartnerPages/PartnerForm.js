@@ -5,10 +5,10 @@ import Input from '../../common/Input/Input';
 
 import { store } from '../../utils/services/store';
 import { connect } from 'react-redux';
-import { setPartnerFormField } from '../../utils/services/partner/partnerActions';
+//import { setPartnerFormField } from '../../utils/services/partner/partnerActions';
 const dispatch = store.dispatch;
 
-export const PartnerForm = ({ formData, setField, submitData, submitText, submitClass }) => {
+export const PartnerForm = ({ formData, /*setField,*/ submitData, submitText, submitClass }) => {
   const data = formData && formData.data ? formData.data : {};
 
   return (
@@ -19,7 +19,7 @@ export const PartnerForm = ({ formData, setField, submitData, submitText, submit
       <Input
         label="Partner Name"
         name="name"
-        setValue={(val) => dispatch(setField("name", val))}
+        setValue={(val) => {}/*dispatch(setField("name", val))*/}
         value={data.name || ""}
       />
       <Input
@@ -35,13 +35,12 @@ const mapStateToProps = state => {
   return { formData: state.partnerForm };
 }
 
-const mapDispatchToProps = () => {
+/*const mapDispatchToProps = () => {
   return { setField: setPartnerFormField };
-}
+}*/
 
 const PartnerFormContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(PartnerForm);
 
 export default PartnerFormContainer;

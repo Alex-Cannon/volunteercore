@@ -23,4 +23,6 @@ export const partnerList = (partnerList = {}, action) => {
     default:
       break;
   }
+
+  return newPartnerList;
 }

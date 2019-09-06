@@ -1,38 +1,26 @@
 // POST Partner
 export const setPostPartnerFormData = formData => ({
-  type: "SET_PARTNER_LIST_QUERY_DATA",
+  type: "SET_POST_PARTNER_FORM_DATA",
   formData
 });
 
-export const setPostParterResult = result => ({
+export const setPostPartnerResult = result => ({
   type: "SET_POST_PARTNER_RESULT",
   result
 });
 
-export const setPostParterError = error => ({
+export const setPostPartnerError = error => ({
   type: "SET_POST_PARTNER_ERROR",
   error
 });
 
-export const postParterLoading = () => ({
+export const postPartnerLoading = () => ({
   type: "POST_PARTNER_LOADING"
 });
 
-// PUT Partner
-/*export const setPartnerResult = result => ({
-  type: "SET_PARTNER_RESULT",
-  result
+export const putPartnerLoading = () => ({
+  type: "PUT_PARTNER_LOADING"
 });
-
-export const setPartnerError = error => ({
-  type: "SET_PARTNER_ERROR",
-  error
-});
-
-export const partnerLoading = () => ({
-  type: "PARTNER_LOADING"
-});*/
-
 
 // GET Partners
 export const setPartnerListQueryData = queryData => ({
@@ -55,31 +43,47 @@ export const partnerListLoading = () => ({
 });
 
 // GET Partner
-export const setPartnerResult = result => ({
-  type: "SET_PARTNER_RESULT",
+export const setGetPartnerResult = result => ({
+  type: "SET_GET_PARTNER_RESULT",
   result
 });
 
-export const setPartnerError = error => ({
-  type: "SET_PARTNER_ERROR",
+export const setGetPartnerError = error => ({
+  type: "SET_GET_PARTNER_ERROR",
   error
 });
 
-export const partnerLoading = () => ({
-  type: "PARTNER_LOADING"
+export const getPartnerLoading = () => ({
+  type: "GET_PARTNER_LOADING"
+});
+
+// PUT Partner
+export const setPutPartnerFormData = formData => ({
+  type: "SET_PUT_PARTNER_FORM_DATA",
+  formData
+});
+
+export const setPutPartnerResult = result => ({
+  type: "SET_PUT_PARTNER_RESULT",
+  result
+});
+
+export const setPutPartnerError = error => ({
+  type: "SET_PUT_PARTNER_ERROR",
+  error
 });
 
 // Delete Partner
-export const setPartnerDeleteResult = result => ({
-  type: "SET_PARTNER_DELETE_RESULT",
+export const setDeletePartnerResult = result => ({
+  type: "SET_DELETE_PARTNER_RESULT",
   result
 });
 
-export const setPartnerDeleteError = error => ({
-  type: "SET_PARTNER_DELETE_ERROR",
+export const setDeletePartnerError = error => ({
+  type: "SET_DELETE_PARTNER_ERROR",
   error
 });
 
-export const partnerDeleteLoading = () => ({
-  type: "PARTNER_DELETE_LOADING"
+export const DeletePartnerLoading = () => ({
+  type: "DELETE_PARTNER_LOADING"
 });

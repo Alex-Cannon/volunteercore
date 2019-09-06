@@ -1,19 +1,19 @@
 import axios from 'axios';
 
 import { store } from '../store';
-import { loadingGetPartner, errorGetPartner, successGetPartner } from './partnerActions';
+import { getPartnerLoading, setGetPartnerError, setGetPartnerResult } from './partnerActions';
 const dispatch = store.dispatch;
 
 export const getPartner = (id, callback) => {
-  dispatch(loadingGetPartner());
+  dispatch(getPartnerLoading());
 
   axios.get(`/api/partners/${id}`)
     .then(({ data }) => {
-      if (!callback) return dispatch(successGetPartner(data));
+      if (!callback) return dispatch(setGetPartnerResult(data));
       callback(data, null);
     })
     .catch(error => {
-      if (!callback) return dispatch(errorGetPartner(error));
+      if (!callback) return dispatch(setGetPartnerError(error));
       callback(null, error);
     });
 }
