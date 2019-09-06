@@ -7,6 +7,7 @@ export default ({ inputClass, type, label, name, placeholder, required, setValue
         className={inputClass || "input"}
         name={name || label || placeholder || 'undefined'}
         placeholder={placeholder || ("Enter " + (label || "Field"))}
+        required={required}
         type={type || "text"}
         value={value}
         onChange={(e) => setValue(e.target.value)}

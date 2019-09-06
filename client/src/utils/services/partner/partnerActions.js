@@ -23,9 +23,9 @@ export const putPartnerLoading = () => ({
 });
 
 // GET Partners
-export const setPartnerListQueryData = queryData => ({
-  type: "SET_PARTNER_LIST_QUERY_DATA",
-  queryData
+export const setPartnerListOptions = options => ({
+  type: "SET_PARTNER_LIST_OPTIONS",
+  options
 });
 
 export const setPartnerListResult = result => ({

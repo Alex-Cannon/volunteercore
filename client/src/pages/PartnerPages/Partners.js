@@ -10,10 +10,10 @@ import getPartners from '../../utils/services/partner/getPartners';
 
 import { store } from '../../utils/services/store';
 import { connect } from 'react-redux';
-import { setPartnerListQueryData } from '../../utils/services/partner/partnerActions';
+import { setPartnerListOptions } from '../../utils/services/partner/partnerActions';
 const dispatch = store.dispatch;
 
-export const Partners = ({ partnerList, setPartnerListQueryData, location }) => {
+export const Partners = ({ partnerList, setPartnerListOptions, location }) => {
   const { result, error, loading } = partnerList;
   let { options } = partnerList;
   options = { ...options, ...queryToObject(location.search) };
@@ -35,7 +35,7 @@ export const Partners = ({ partnerList, setPartnerListQueryData, location }) => 
           getPartners(options);
         }}
         value={options.search}
-        setValue={(val) => dispatch(setPartnerListQueryData("search", val))}
+        setValue={(val) => dispatch(setPartnerListOptions({ search: val }))}
       />
       {loading ? <p>Loading...</p> : ''}
       {error ? <p>{error.message}</p> : ''}
@@ -59,7 +59,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = () => ({
-  setPartnerListQueryData
+  setPartnerListOptions
 });
 
 const PartnersContainer = connect(

@@ -7,8 +7,8 @@ export const partnerList = (partnerList = {
   let newPartnerList = Object.assign({}, partnerList);
 
   switch(action.type) {
-    case "SET_PARTNER_LIST_QUERY_DATA":
-      newPartnerList.queryData = { ...newPartnerList.queryData, ...action.queryData };
+    case "SET_PARTNER_LIST_OPTIONS":
+      newPartnerList.options = { ...newPartnerList.options, ...action.options };
       break;
     case "SET_PARTNER_LIST_RESULT":
       newPartnerList.result = action.result;
@@ -28,8 +28,6 @@ export const partnerList = (partnerList = {
     default:
       break;
   }
-
-  console.log(newPartnerList);
 
   return newPartnerList;
 }
