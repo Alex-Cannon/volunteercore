@@ -1,11 +1,9 @@
 import React from 'react';
 import './Pagination.scss';
 
-import { connect } from 'react-redux';
-
-export const Pagination = ({ partnerSearch, nextPageAction }) => {
-  if (!partnerSearch.data || !partnerSearch.options) return '';
-  let { page, total_pages } = partnerSearch.data._meta;
+export const Pagination = ({ query, nextPageAction }) => {
+  if (!query.data || !query.options) return '';
+  let { page, total_pages } = query.data._meta;
 
   const getPages = () => {
     let pages = [page];
@@ -50,12 +48,4 @@ export const Pagination = ({ partnerSearch, nextPageAction }) => {
   )
 }
 
-const mapStateToProps = state => ({
-  partnerSearch: state.partnerSearch
-});
-
-const PaginationContainer = connect(
-  mapStateToProps
-)(Pagination);
-
-export default PaginationContainer;
+export default Pagination;

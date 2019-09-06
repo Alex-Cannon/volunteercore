@@ -1,4 +1,9 @@
-export const partnerList = (partnerList = {}, action) => {
+export const partnerList = (partnerList = {
+  options: {
+    search: "",
+    page: 1,
+    per_page: 10
+  }}, action) => {
   let newPartnerList = Object.assign({}, partnerList);
 
   switch(action.type) {
@@ -16,13 +21,15 @@ export const partnerList = (partnerList = {}, action) => {
       newPartnerList.loading = false;  
       break;
     case "PARTNER_LIST_LOADING":
-      newPartnerList.result = action.result;
+      newPartnerList.result = null;
       newPartnerList.error = null;
-      newPartnerList.loading = false;  
+      newPartnerList.loading = true;  
       break;
     default:
       break;
   }
+
+  console.log(newPartnerList);
 
   return newPartnerList;
 }

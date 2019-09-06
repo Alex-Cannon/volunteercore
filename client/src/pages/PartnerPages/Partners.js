@@ -13,13 +13,13 @@ import { connect } from 'react-redux';
 import { setPartnerListQueryData } from '../../utils/services/partner/partnerActions';
 const dispatch = store.dispatch;
 
-export const Partners = ({ partnerSearch, setPartnerListQueryData, location }) => {
-  const { data, error, loading } = partnerSearch;
-  let { options } = partnerSearch;
+export const Partners = ({ partnerList, setPartnerListQueryData, location }) => {
+  const { result, error, loading } = partnerList;
+  let { options } = partnerList;
   options = { ...options, ...queryToObject(location.search) };
   
   useEffect(() => {
-    if (!data && !error && !loading) {
+    if (!result && !error && !loading) {
       getPartners(options);
     }
   });
@@ -39,21 +39,23 @@ export const Partners = ({ partnerSearch, setPartnerListQueryData, location }) =
       />
       {loading ? <p>Loading...</p> : ''}
       {error ? <p>{error.message}</p> : ''}
-      {data ? data.items.map((item, i) => {
+      {result ? result.items.map((item, i) => {
         return <PartnerCard {...item} key={item.name + i + 'partners'} />
       }) : ''}
-      <Pagination nextPageAction={(pageNum) => {
-        if (pageNum === options.pageNum) return;
-        const newOptions = options;
-        newOptions.page = pageNum;
-        getPartners(newOptions);
+      <Pagination
+        query={partnerList}
+        nextPageAction={(pageNum) => {
+          if (pageNum === options.pageNum) return;
+          const newOptions = options;
+          newOptions.page = pageNum;
+          getPartners(newOptions);
       }}/>
     </PageWrapper>
   )
 }
 
 const mapStateToProps = state => ({
-  partnerSearch: state.partnerSearch
+  partnerList: state.partnerList
 });
 
 const mapDispatchToProps = () => ({
