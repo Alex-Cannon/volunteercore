@@ -3,13 +3,8 @@ import React from 'react';
 import Form from '../../common/Form/Form';
 import Input from '../../common/Input/Input';
 
-import { store } from '../../utils/services/store';
-import { connect } from 'react-redux';
-//import { setPartnerFormField } from '../../utils/services/partner/partnerActions';
-const dispatch = store.dispatch;
-
-export const PartnerForm = ({ formData, /*setField,*/ submitData, submitText, submitClass }) => {
-  const data = formData && formData.data ? formData.data : {};
+export const PartnerForm = ({ formData, setFormData, submitData, submitText, submitClass }) => {
+  const data = formData || {};
 
   return (
     <Form onSubmit={(e) => {
@@ -19,7 +14,7 @@ export const PartnerForm = ({ formData, /*setField,*/ submitData, submitText, su
       <Input
         label="Partner Name"
         name="name"
-        setValue={(val) => {}/*dispatch(setField("name", val))*/}
+        setValue={(val) => setFormData("name", val)}
         value={data.name || ""}
       />
       <Input
@@ -31,16 +26,4 @@ export const PartnerForm = ({ formData, /*setField,*/ submitData, submitText, su
   );
 }
 
-const mapStateToProps = state => {
-  return { formData: state.partnerForm };
-}
-
-/*const mapDispatchToProps = () => {
-  return { setField: setPartnerFormField };
-}*/
-
-const PartnerFormContainer = connect(
-  mapStateToProps
-)(PartnerForm);
-
-export default PartnerFormContainer;
+export default PartnerForm;

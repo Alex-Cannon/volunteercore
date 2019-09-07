@@ -8,7 +8,7 @@ import { store } from '../../utils/services/store';
 import { connect } from 'react-redux';
 import PartnerForm from './PartnerForm.js';
 
-import { setPostPartnerFormData, setGetPartnerResult, setGetPartnerError } from '../../utils/services/partner/partnerActions';
+import { setPostPartnerFormData as setFormData, setGetPartnerResult, setGetPartnerError } from '../../utils/services/partner/partnerActions';
 
 import putPartner from '../../utils/services/partner/putPartner';
 import getPartner from '../../utils/services/partner/getPartner';
@@ -27,9 +27,9 @@ export class PutPartner extends Component {
   }
 
   render () {
-    const { initialFormData, formData } = this.props;
-    const { loading: getLoading, success: getSuccess, error: getError } = initialFormData;
-    const { loading: putLoading, success: putSuccess, error: putError } = formData;
+    const { initialFormData, putPartnerForm } = this.props;
+    const { loading: getLoading, result: getResult, error: getError } = initialFormData;
+    const { loading: putLoading, result: putResult, error: putError } = putPartnerForm;
  
     return (
       <PageWrapper>
@@ -38,18 +38,18 @@ export class PutPartner extends Component {
           <Link to="/partners">&lt;-- Search Partners</Link>
         </p>
         {getLoading ? <p>Loading Partner...</p> : ''}
-        {getSuccess ? (
+        {getResult ? (
           <PartnerForm
             submitData={putPartner}
             submitText="Save Changes"
             submitClass="btn btn-warning"
           />
-        ) : ''}
+        ) : 'No Result'}
         {getError ? <p className="text-danger">{getError.message}. Please reload the page.</p> : ''}
         <p>* Request modifications to this form by <ExLink to="https://github.com/CodeForFoco/volunteercore/issues/new">submitting an issue</ExLink>.</p>
         { putLoading ? <p>Saving Changes...</p>: ''}
         { putError ? <p className="text-danger">{putError.message}</p>: ''}
-        { putSuccess ? <p className="text-success">Changes Saved!</p>: ''}
+        { putResult ? <p className="text-success">Changes Saved!</p>: ''}
       </PageWrapper>
     );
   }
@@ -57,11 +57,11 @@ export class PutPartner extends Component {
 
 const mapStateToProps = state => ({
   initialFormData: state.getPartner,
-  formData: state.partnerForm
+  putPartnerForm: state.putPartnerForm
 });
 
 const mapDispatchToProps = () => ({
-  setField: setPostPartnerFormData,
+  setFormData,
   setGetPartnerResult,
   setGetPartnerError
 });

@@ -18,10 +18,6 @@ export const postPartnerLoading = () => ({
   type: "POST_PARTNER_LOADING"
 });
 
-export const putPartnerLoading = () => ({
-  type: "PUT_PARTNER_LOADING"
-});
-
 // GET Partners
 export const setPartnerListOptions = options => ({
   type: "SET_PARTNER_LIST_OPTIONS",
@@ -71,6 +67,10 @@ export const setPutPartnerResult = result => ({
 export const setPutPartnerError = error => ({
   type: "SET_PUT_PARTNER_ERROR",
   error
+});
+
+export const putPartnerLoading = () => ({
+  type: "PUT_PARTNER_LOADING"
 });
 
 // Delete Partner

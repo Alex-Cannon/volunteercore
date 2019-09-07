@@ -31,3 +31,78 @@ export const partnerList = (partnerList = {
 
   return newPartnerList;
 }
+
+export const postPartnerForm = (partner = {}, action) => {
+  let newPartner = Object.assign({}, partner);
+
+  switch(action.type) {
+    case "SET_POST_PARTNER_FORM_DATA":
+      newPartner.formData = {...newPartner.formData, ...action.formData};
+      break;
+    case "SET_POST_PARTNER_RESULT":
+      newPartner.result = action.result;
+      newPartner.error = null;
+      newPartner.loading = false;
+      break;
+    case "SET_POST_PARTNER_ERROR":
+      newPartner.result = null;
+      newPartner.error = action.error;
+      newPartner.loading = false;  
+      break;
+    case "POST_PARTNER_LOADING":
+      newPartner.result = null;
+      newPartner.error = null;
+      newPartner.loading = true;    
+      break;
+    default:
+      break;
+  }
+
+  return newPartner;
+}
+
+export const putPartnerForm = (putPartner = {}, action) => {
+  let newPutPartner = Object.assign({}, putPartner);
+
+  switch(action.type) {
+    case "SET_PUT_PARTNER_FORM_DATA":
+      newPutPartner = { ...newPutPartner.formData, ...putPartner.formData };
+      break;
+    case "SET_PUT_PARTNER_RESULT":
+      newPutPartner.result = action.result;
+      newPutPartner.error = null;
+      newPutPartner.loading = false;  
+      break;
+    case "SET_PUT_PARTNER_ERROR":
+      newPutPartner.result = null;
+      newPutPartner.error = action.error;
+      newPutPartner.loading = false;
+      break;
+    case "PUT_PARTNER_LOADING":
+      newPutPartner.result = null
+      newPutPartner.error = null;
+      newPutPartner.loading = true;    
+      break;
+    default:
+      break;
+  }
+
+  return newPutPartner;
+};
+
+export const getPartner = (partner = {}, action) => {
+  let newPartner = Object.assign({}, partner);
+
+  switch (action.type) {
+    case "SET_GET_PARTNER_RESULT":
+      break;
+    case "SET_GET_PARTNER_ERROR":
+      break;
+    case "GET_PARTNER_LOADING":
+      break;
+    default:
+      break;
+  }
+
+  return newPartner;
+};

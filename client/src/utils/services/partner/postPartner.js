@@ -8,8 +8,8 @@ export const postPartner = (data) => {
   dispatch(postPartnerLoading());
 
   axios.post('/api/partners', data)
-    .then(() => {
-      dispatch(setPostPartnerResult())
+    .then(({ data }) => {
+      dispatch(setPostPartnerResult(data))
     })
     .catch(error => {
       dispatch(setPostPartnerError(error));
