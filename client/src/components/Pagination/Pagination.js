@@ -2,8 +2,8 @@ import React from 'react';
 import './Pagination.scss';
 
 export const Pagination = ({ query, nextPageAction }) => {
-  if (!query.data || !query.options) return '';
-  let { page, total_pages } = query.data._meta;
+  if (!query.result || !query.options) return '';
+  let { page, total_pages } = query.result._meta;
 
   const getPages = () => {
     let pages = [page];
