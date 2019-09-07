@@ -5,12 +5,12 @@ export const setOpportunityListQueryData = queryData => ({
 });
 
 export const setOpportunityListResult = result => ({
-  type: "OPPORTUNITY_LIST_RESULT",
+  type: "SET_OPPORTUNITY_LIST_RESULT",
   result
 });
 
 export const setOpportunityListError = error => ({
-  type: "OPPORTUNITY_LIST_ERROR",
+  type: "SET_OPPORTUNITY_LIST_ERROR",
   error
 });
 

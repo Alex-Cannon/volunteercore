@@ -1,53 +1,54 @@
 /*
-  Example Request Object:
-  request: {
+  Example List Object:
+  list: {
     result: Object
     loading: Boolean,
     error: Object
-    formData: Object // Fields to be parsed & sent as request in query or body
+    formData: Object // Fields to be parsed & sent as list in query or body
   }
 */
 
-export const opportunityList = (request, action) => {
-  let newRequest = {};
-  Object.assign(newRequest, request);
+export const opportunityList = (list = { queryData: {
+  search: "",
+  page: 1,
+  per_page: 10
+}}, action) => {
+  let newList = Object.assign({}, list);
 
   switch(action.type) {
     case "OPPORTUNITY_LIST_SET_QUERY_DATA":
-      console.log(newRequest);
-      Object.assign(newRequest.queryData, action.queryData);
-      console.log(newRequest);
+      newList.queryData = { ...newList.queryData, ...action.queryData };
       break;
-    case  "OPPORTUNITY_LIST_RESULT":
-      newRequest.result = action.result;
-      newRequest.error = null;
-      newRequest.loading = false;
+    case  "SET_OPPORTUNITY_LIST_RESULT":
+      newList.result = action.result;
+      newList.error = null;
+      newList.loading = false;
       break;
-    case "OPPORTUNITY_LIST_ERROR":
-      newRequest.result = null;
-      newRequest.error = action.error;
-      newRequest.loading = false;
+    case "SET_OPPORTUNITY_LIST_ERROR":
+      newList.result = null;
+      newList.error = action.error;
+      newList.loading = false;
       break;
     case "OPPORTUNITY_LIST_LOADING":
-      newRequest.result = null;
-      newRequest.error = null;
-      newRequest.loading = true;
+      newList.result = null;
+      newList.error = null;
+      newList.loading = true;
       break;
     default:
     break;
   }
 
-  return newRequest;
+  return newList;
 };
 
 
-export const postOpportunityForm = (request, action) => {
-  let newRequest = {};
-  Object.assign(newRequest, request);
+export const postOpportunityForm = (list, action) => {
+  let newList = {};
+  Object.assign(newList, list);
 };
 
-export const putOpportunityForm = (request, action) => {
-  let newRequest = {};
-  Object.assign(newRequest, request);
+export const putOpportunityForm = (list, action) => {
+  let newList = {};
+  Object.assign(newList, list);
 
 };

@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import Signin from '../../pages/Signin/Signin';
 import Help from '../../pages/Help/Help';
 import Page404 from '../../pages/Page404/Page404';
-import Opportunities from '../../pages/Opportunities/Opportunities';
+import Opportunities from '../../pages/OpportunityPages/Opportunities';
 import OpportunitiesForm from '../../pages/OpportunityPages/OpportunitiesForm';
 import Partners from '../../pages/PartnerPages/Partners';
 import PostPartner from '../../pages/PartnerPages/PostPartner';
