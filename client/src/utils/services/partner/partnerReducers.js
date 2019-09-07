@@ -105,13 +105,39 @@ export const getPartner = (partner = {}, action) => {
       newPartner.loading = false;
       break;
     case "GET_PARTNER_LOADING":
-      newPartner.result = null
-      newPartner.error = null;
-      newPartner.loading = true;      
-      break;
+        newPartner.result = null;
+        newPartner.error = action.error;
+        newPartner.loading = false;
+        break;
     default:
       break;
   }
 
   return newPartner;
+};
+
+export const deletePartner = (request = {}, action) => {
+  let newRequest = Object.assign({}, request);
+
+  switch (action.type) {
+    case "SET_DELETE_PARTNER_RESULT":
+      newRequest.result = action.result;
+      newRequest.error = null;
+      newRequest.loading = false;
+      break;
+    case "SET_DELETE_PARTNER_ERROR":
+      newRequest.result = null;
+      newRequest.error = action.error;
+      newRequest.loading = false;  
+      break;
+    case "DELETE_PARTNER_LOADING":
+      newRequest.result = null;
+      newRequest.error = action.error;
+      newRequest.loading = false;  
+      break;
+    default:
+      break;
+  }
+
+  return newRequest;
 };

@@ -84,6 +84,6 @@ export const setDeletePartnerError = error => ({
   error
 });
 
-export const DeletePartnerLoading = () => ({
+export const deletePartnerLoading = () => ({
   type: "DELETE_PARTNER_LOADING"
 });
