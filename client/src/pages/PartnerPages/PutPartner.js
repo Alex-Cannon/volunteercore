@@ -8,7 +8,7 @@ import { store } from '../../utils/services/store';
 import { connect } from 'react-redux';
 import PartnerForm from './PartnerForm.js';
 
-import { setPostPartnerFormData as setFormData, setGetPartnerResult, setGetPartnerError } from '../../utils/services/partner/partnerActions';
+import { setPutPartnerFormData as setFormData, setGetPartnerResult, setGetPartnerError } from '../../utils/services/partner/partnerActions';
 
 import putPartner from '../../utils/services/partner/putPartner';
 import getPartner from '../../utils/services/partner/getPartner';
@@ -16,21 +16,19 @@ const dispatch = store.dispatch;
 
 export class PutPartner extends Component {
   componentDidMount() {
-    const { match, setField, setGetPartnerResult, setGetPartnerError } = this.props;
+    const { match, setFormData, setGetPartnerResult, setGetPartnerError } = this.props;
     getPartner(match.params.id, (data, error) => {
       if (error) return dispatch(setGetPartnerError(error));
-      dispatch(setGetPartnerResult({}));
-      Object.keys(data).forEach(key => {
-        dispatch(setField(key, data[key]));
-      });
+      dispatch(setGetPartnerResult(data));
+      setFormData(data);
     });
   }
 
   render () {
-    const { initialFormData, putPartnerForm } = this.props;
+    const { initialFormData, putPartnerForm, setFormData } = this.props;
     const { loading: getLoading, result: getResult, error: getError } = initialFormData;
-    const { loading: putLoading, result: putResult, error: putError } = putPartnerForm;
- 
+    const { formData, loading: putLoading, result: putResult, error: putError } = putPartnerForm;
+
     return (
       <PageWrapper>
         <h3>Edit Partner</h3>
@@ -40,6 +38,8 @@ export class PutPartner extends Component {
         {getLoading ? <p>Loading Partner...</p> : ''}
         {getResult ? (
           <PartnerForm
+            formData={formData}
+            setFormData={setFormData}
             submitData={putPartner}
             submitText="Save Changes"
             submitClass="btn btn-warning"
@@ -61,7 +61,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = () => ({
-  setFormData,
+  setFormData: (data) => dispatch(setFormData(data)),
   setGetPartnerResult,
   setGetPartnerError
 });

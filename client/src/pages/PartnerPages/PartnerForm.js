@@ -14,7 +14,7 @@ export const PartnerForm = ({ formData, setFormData, submitData, submitText, sub
       <Input
         label="Partner Name"
         name="name"
-        setValue={(val) => setFormData("name", val)}
+        setValue={(val) => setFormData({name: val})}
         value={data.name || ""}
       />
       <Input

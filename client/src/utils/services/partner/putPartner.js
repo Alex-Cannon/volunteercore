@@ -9,7 +9,7 @@ export const putPartner = (data, callback) => {
 
   axios.put(`/api/partners/${data.id}`, data)
     .then(({ data }) => {
-      if (!callback) return dispatch(setPutPartnerResult());
+      if (!callback) return dispatch(setPutPartnerResult(data));
       callback(data, null);
     })
     .catch(error => {

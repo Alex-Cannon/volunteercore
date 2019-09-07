@@ -66,12 +66,12 @@ export const putPartnerForm = (putPartner = {}, action) => {
 
   switch(action.type) {
     case "SET_PUT_PARTNER_FORM_DATA":
-      newPutPartner = { ...newPutPartner.formData, ...putPartner.formData };
+      newPutPartner.formData = { ...newPutPartner.formData, ...action.formData };
       break;
     case "SET_PUT_PARTNER_RESULT":
       newPutPartner.result = action.result;
       newPutPartner.error = null;
-      newPutPartner.loading = false;  
+      newPutPartner.loading = false;
       break;
     case "SET_PUT_PARTNER_ERROR":
       newPutPartner.result = null;
@@ -95,10 +95,19 @@ export const getPartner = (partner = {}, action) => {
 
   switch (action.type) {
     case "SET_GET_PARTNER_RESULT":
+      newPartner.result = action.result;
+      newPartner.error = null;
+      newPartner.loading = false;
       break;
     case "SET_GET_PARTNER_ERROR":
+      newPartner.result = null;
+      newPartner.error = action.error;
+      newPartner.loading = false;
       break;
     case "GET_PARTNER_LOADING":
+      newPartner.result = null
+      newPartner.error = null;
+      newPartner.loading = true;      
       break;
     default:
       break;
