@@ -1,0 +1,46 @@
+@import '../../utils/variables';
+@import '../Input/Input.scss';
+
+.search-select-one-container {
+  position: relative;
+  width: 100%;
+}
+
+.search-select-one-container-focus {
+  @extend .search-select-one-container;
+  &> .input-group {
+    .input {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+}
+
+.search-select-one-suggestion-container {
+  position: absolute;
+  width: 100%;
+  z-index: 5;
+  margin-top: -1rem;
+}
+
+.search-select-one-suggestion { 
+  @extend .input;
+  display: flex;
+  align-items: center;
+  padding: .25em 1em;
+  width: 100%;
+  background: $text-light;
+  border-radius: 0;
+  border: 1px solid $emphasis;
+  border-top: 0;
+
+  &:hover {
+    cursor: pointer;
+    background: lighten($emphasis, 52%);
+  }
+  
+  &:last-of-type {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+}

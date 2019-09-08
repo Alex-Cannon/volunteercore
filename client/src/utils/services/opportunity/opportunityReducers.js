@@ -31,8 +31,7 @@ export const opportunityList = (list = { queryData: {
   return newList;
 };
 
-
-export const postOpportunityForm = (opportunity = {}, action) => {
+export const postOpportunityForm = (opportunity = { formData: {}}, action) => {
   let newOpportunity = Object.assign({}, opportunity);
 
   switch (action.type) {

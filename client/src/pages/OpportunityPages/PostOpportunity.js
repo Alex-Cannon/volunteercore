@@ -8,6 +8,8 @@ import postOpportunity from '../../utils/services/opportunity/postOpportunity';
 
 import { setPostOpportunityFormData as setFormData } from '../../utils/services/opportunity/opportunityActions';
 import { connect } from 'react-redux';
+import { store } from '../../utils/services/store';
+const dispatch = store.dispatch;
 
 export const PostOpportunity = ({ opportunity, setFormData }) => {
   const { formData, loading, result, error } = opportunity;
@@ -19,10 +21,10 @@ export const PostOpportunity = ({ opportunity, setFormData }) => {
         <p><Link to="/opportunities">&lt;-- Search Opportunities</Link></p>
         <OpportunityForm
           formData={formData}
-          setFormData={setFormData}
+          setFormData={(object) => dispatch(setFormData(object))}
           submitForm={() => postOpportunity(formData)}
         />
-        {result ? result.items.map(item => <p>{item.name}</p>) : 'No Results'}
+        {result ? result.items.map(item => <p>{item.name}</p>) : ''}
         {error ? <p className="text-danger">{error.message}</p> : ''}
         {loading ? <p>Loading Opportunities...</p> : ''}
       </section>

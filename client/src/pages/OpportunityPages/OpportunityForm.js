@@ -3,6 +3,9 @@ import { ExternalLink as ExLink } from '../../common/ExternalLink/ExternalLink';
 
 import Form from '../../common/Form/Form';
 import Input from '../../common/Input/Input';
+import SearchSelectOne from '../../common/SearchSelectOne/SearchSelectOne';
+
+import getPartners from '../../utils/services/partner/getPartners';
 
 export const OpportunityForm = ({ formData, setFormData, submitForm }) => {
   return (
@@ -11,11 +14,13 @@ export const OpportunityForm = ({ formData, setFormData, submitForm }) => {
         e.preventDefault();
         submitForm();
       }}>
-        <Input
-          label="Partner / Organization"
-          name="partner_name"
-          placeholder="Select Partner / Organization"
+        <SearchSelectOne
+          asyncGetOptions={getPartners}
+          label="Partner"
+          placeholder="Search Partners"
           required
+          value={formData.partner_name}
+          setValue={(val) => setFormData({ partner_name: val })}
         />
         <Input
           label="Name"

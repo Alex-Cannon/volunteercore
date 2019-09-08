@@ -2,6 +2,7 @@
 @import '../../utils/common';
 
 .input-group {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -28,4 +29,8 @@
     @extend .btn-info;
     margin-right: 0;
   }
+}
+
+select {
+  @extend .input;
 }
