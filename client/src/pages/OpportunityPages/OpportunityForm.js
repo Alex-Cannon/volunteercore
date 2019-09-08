@@ -1,24 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { ExternalLink as ExLink } from '../../common/ExternalLink/ExternalLink';
-
-import PageWrapper from '../../components/PageWrapper/PageWrapper';
 
 import Form from '../../common/Form/Form';
 import Input from '../../common/Input/Input';
 
-import { postOpportunity } from '../../utils/services/opportunity/postOpportunity';
-
-// Methods (POST / PUT)
-
-export const OpportunitiesForm = ({ method }) => {
+export const OpportunityForm = ({ formData, setFormData, submitForm }) => {
   return (
-    <PageWrapper>
-      <h3>Add Opportunity</h3>
-      <p>
-        <Link to="/opportunities">&lt;-- Search Opportunities</Link>
-      </p>
-      <Form onSubmit={method === 'post' ? postOpportunity : ''}>
+    <>
+      <Form onSubmit={(e) => {
+        e.preventDefault();
+        submitForm();
+      }}>
         <Input
           label="Partner / Organization"
           name="partner_name"
@@ -58,8 +50,8 @@ export const OpportunitiesForm = ({ method }) => {
         />  
       </Form>
       <p>* Request modifications to this form by <ExLink to="https://github.com/CodeForFoco/volunteercore/issues/new">submitting an issue</ExLink>.</p>
-    </PageWrapper>
+    </>
   );
 }
 
-export default OpportunitiesForm;
+export default OpportunityForm;

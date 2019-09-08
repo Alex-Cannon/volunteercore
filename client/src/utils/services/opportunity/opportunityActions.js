@@ -24,13 +24,13 @@ export const setPostOpportunityFormData = formData => ({
   formData
 });
 
-export const setResultPostOpportunity = result => ({
-  type: "POST_OPPORTUNITY_RESULT",
+export const setPostOpportunityResult = result => ({
+  type: "SET_POST_OPPORTUNITY_RESULT",
   result
 });
 
-export const setErrorPostOpportunity = error => ({
-  type: "POST_OPPORTUNITY_ERROR",
+export const setPostOpportunityError = error => ({
+  type: "SET_POST_OPPORTUNITY_ERROR",
   error
 });
 

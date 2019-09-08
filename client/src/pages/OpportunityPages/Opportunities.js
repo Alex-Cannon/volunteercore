@@ -12,8 +12,6 @@ export class Opportunities extends Component {
   componentDidMount() {
     const { loading, result, error, queryData } = this.props.opportunityList;
 
-    console.log(this.props.opportunityList);
-
     if (!loading && !result && !error) {
       getOpportunities(queryData);
     }

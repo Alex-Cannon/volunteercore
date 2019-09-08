@@ -1,13 +1,3 @@
-/*
-  Example List Object:
-  list: {
-    result: Object
-    loading: Boolean,
-    error: Object
-    formData: Object // Fields to be parsed & sent as list in query or body
-  }
-*/
-
 export const opportunityList = (list = { queryData: {
   search: "",
   page: 1,
@@ -42,13 +32,31 @@ export const opportunityList = (list = { queryData: {
 };
 
 
-export const postOpportunityForm = (list, action) => {
-  let newList = {};
-  Object.assign(newList, list);
-};
+export const postOpportunityForm = (opportunity = {}, action) => {
+  let newOpportunity = Object.assign({}, opportunity);
 
-export const putOpportunityForm = (list, action) => {
-  let newList = {};
-  Object.assign(newList, list);
+  switch (action.type) {
+    case "SET_POST_OPPORTUNITY_FORM_DATA":
+      newOpportunity.formData = { ...newOpportunity.formData, ...action.formData };
+      break;
+    case "SET_POST_OPPORTUNITY_RESULT":
+      newOpportunity.result = action.result;
+      newOpportunity.error = null;
+      newOpportunity.loading = false;
+      break;
+    case "SET_POST_OPPORTUNITY_ERROR":
+      newOpportunity.result = null;
+      newOpportunity.error = action.error;
+      newOpportunity.loading = false; 
+    break;
+    case "POST_OPPORTUNITY_LOADING":
+      newOpportunity.result = null;
+      newOpportunity.error = null;
+      newOpportunity.loading = true;
+      break;
+    default:
+      break;
+  }
 
+  return newOpportunity;
 };

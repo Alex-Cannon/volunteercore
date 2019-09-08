@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { store } from '../store';
-import { loadingPostOpportunity, setResultPostOpportunity, setErrorPostOpportunity } from './opportunityActions';
+import { loadingPostOpportunity, setPostOpportunityResult, setPostOpportunityError } from './opportunityActions';
 const dispatch = store.dispatch;
 
 export const postOpportunity = (data) => {
@@ -11,10 +11,10 @@ export const postOpportunity = (data) => {
   
   axios.post('/api/opportunities', data, HEADERS)
     .then(({ data }) => {
-      dispatch(setResultPostOpportunity(data));
+      dispatch(setPostOpportunityResult(data));
     })
     .catch(error => {
-      dispatch(setErrorPostOpportunity(error));
+      dispatch(setPostOpportunityError(error));
     });
 }
 
