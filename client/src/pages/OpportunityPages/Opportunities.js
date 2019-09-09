@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import PageWrapper from '../../components/PageWrapper/PageWrapper';
 import SearchBar from '../../components/SearchBar/SearchBar';
+import { OpportunityCard } from '../../components/OpportunityCard/OpportunityCard';
 
 import { getOpportunities } from '../../utils/services/opportunity/getOpportunities';
 
@@ -16,12 +17,10 @@ export class Opportunities extends Component {
       getOpportunities(queryData);
     }
   }
-  
+
   render () {
     const { loading, result, error, queryData } = this.props.opportunityList;
     const setQueryData = this.props;
-
-    console.log(this.props.opportunityList);
 
     return (
       <PageWrapper>
@@ -33,7 +32,14 @@ export class Opportunities extends Component {
             value={queryData.search}
             setValue={setQueryData}
           />
-          {result ? result.items.map(item => <p>{item.name}</p>) : 'No Results'}
+          {result ? result.items.map((opportunity, i) => {
+            return (
+              <OpportunityCard
+                key={`opp-${i}-${opportunity.name}`}
+                opportunity={opportunity}
+              />
+            );
+          }) : 'No Results'}
           {error ? <p className="text-danger">{error.message}</p> : ''}
           {loading ? <p>Loading Opportunities...</p> : ''}
         </section>
