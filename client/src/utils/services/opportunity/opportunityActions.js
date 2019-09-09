@@ -37,3 +37,23 @@ export const setPostOpportunityError = error => ({
 export const loadingPostOpportunity = () => ({
   type: "LOADING_POST_OPPORTUNITY"
 });
+
+// PUT Opportunity
+export const setPutOpportunityFormData = formData => ({
+  type: "SET_PUT_OPPORTUNITY_FORM_DATA",
+  formData
+});
+
+export const setPutOpportunityResult = result => ({
+  type: "SET_PUT_OPPORTUNITY_RESULT",
+  result
+});
+
+export const setPutOpportunityError = error => ({
+  type: "SET_PUT_OPPORTUNITY_ERROR",
+  error
+});
+
+export const putOpportunityLoading = () => ({
+  type: "PUT_OPPORTUNITY_LOADING"
+});

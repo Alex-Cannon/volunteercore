@@ -7,7 +7,7 @@ import SearchSelectOne from '../../common/SearchSelectOne/SearchSelectOne';
 
 import getPartners from '../../utils/services/partner/getPartners';
 
-export const OpportunityForm = ({ formData, setFormData, submitForm }) => {
+export const OpportunityForm = ({ formData, submitClass, submitText, setFormData, submitForm }) => {
   return (
     <>
       <Form onSubmit={(e) => {
@@ -56,8 +56,9 @@ export const OpportunityForm = ({ formData, setFormData, submitForm }) => {
           setValue={(val) => setFormData({ tags: val })}
         />
         <Input
+          inputClass={submitClass || "input"}
           type="submit"
-          value="Add Opportunity"
+          value={submitText || "Submit"}
         />  
       </Form>
       <p>* Request modifications to this form by <ExLink to="https://github.com/CodeForFoco/volunteercore/issues/new">submitting an issue</ExLink>.</p>

@@ -59,3 +59,32 @@ export const postOpportunityForm = (opportunity = { formData: {}}, action) => {
 
   return newOpportunity;
 };
+
+export const putOpportunityForm = (opportunity = { formData: {}}, action) => {
+  let newOpportunity = Object.assign({}, opportunity);
+
+  switch (action.type) {
+    case "SET_PUT_OPPORTUNITY_FORM_DATA":
+      newOpportunity.formData = { ...newOpportunity.formData, ...action.formData };
+      break;
+    case "SET_PUT_OPPORTUNITY_RESULT":
+      newOpportunity.result = action.result;
+      newOpportunity.error = null;
+      newOpportunity.loading = false;
+      break;
+    case "SET_PUT_OPPORTUNITY_ERROR":
+      newOpportunity.result = null;
+      newOpportunity.error = action.error;
+      newOpportunity.loading = false; 
+    break;
+    case "PUT_OPPORTUNITY_LOADING":
+      newOpportunity.result = null;
+      newOpportunity.error = null;
+      newOpportunity.loading = true;
+      break;
+    default:
+      break;
+  }
+
+  return newOpportunity;
+};

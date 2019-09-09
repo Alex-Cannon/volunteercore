@@ -7,6 +7,7 @@ import Help from '../../pages/Help/Help';
 import Page404 from '../../pages/Page404/Page404';
 import Opportunities from '../../pages/OpportunityPages/Opportunities';
 import PostOpportunity from '../../pages/OpportunityPages/PostOpportunity';
+import PutOpportunity from '../../pages/OpportunityPages/PutOpportunity';
 import Partners from '../../pages/PartnerPages/Partners';
 import PostPartner from '../../pages/PartnerPages/PostPartner';
 import PutPartner from '../../pages/PartnerPages/PutPartner';
@@ -27,6 +28,10 @@ export default [{
 }, {
   path: '/opportunities/post',
   component: PostOpportunity,
+  auth: true
+}, {
+  path: '/opportunities/put/:id',
+  component: PutOpportunity,
   auth: true
 }, {
   path: '/partners',

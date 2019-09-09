@@ -23,6 +23,7 @@ export const PostOpportunity = ({ opportunity, setFormData }) => {
           formData={formData}
           setFormData={(object) => dispatch(setFormData(object))}
           submitForm={() => postOpportunity(formData)}
+          submitText="Add Opportunity"
         />
         {result ? <p className="text-success">{`Opportunity added to ${result.partner_name}`}</p> : ''}
         {error ? <p className="text-danger">{error.message}</p> : ''}

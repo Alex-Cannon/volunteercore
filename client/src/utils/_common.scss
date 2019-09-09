@@ -85,6 +85,17 @@
   }
 }
 
+.btn-success {
+  background: $text-success;
+  color: $text-light;
+  border: 1px solid $text-success;
+  &:hover {
+    background-color: darken($text-success, 10%);
+    border: 1px solid darken($text-success, 10%);
+  }
+
+}
+
 .btn-disabled {
   @extend .btn;
   color: $text-dark !important;
