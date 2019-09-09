@@ -26,28 +26,34 @@ export const OpportunityForm = ({ formData, setFormData, submitForm }) => {
           label="Name"
           name="name"
           required
+          setValue={(val) => setFormData({ name: val })}
         />
         <Input
           label="Description"
           name="description"
           required
+          setValue={(val) => setFormData({ description: val })}
         />
         <Input
           label="Location Street"
           name="location_street"
+          setValue={(val) => setFormData({ location_street: val })}
         />
         <Input
           label="Location City"
           name="location_city"
+          setValue={(val) => setFormData({ location_city: val })}
         />
         <Input
           label="Location Zip"
           name="location_zip"
+          setValue={(val) => setFormData({ location_zip: val })}
         />
         <Input
           label="Tags Eg. 'art', 'children'"
-          placeholder="Enter Tags"
           name="tags"
+          placeholder="Enter Tags"
+          setValue={(val) => setFormData({ tags: val })}
         />
         <Input
           type="submit"

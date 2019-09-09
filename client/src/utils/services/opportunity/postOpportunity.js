@@ -4,12 +4,10 @@ import { store } from '../store';
 import { loadingPostOpportunity, setPostOpportunityResult, setPostOpportunityError } from './opportunityActions';
 const dispatch = store.dispatch;
 
-export const postOpportunity = (data) => {
-  const HEADERS = { headers: { Authorization: 'Bearer ' + this.props.token } };
+export const postOpportunity = (data) => {  
+  dispatch(loadingPostOpportunity());
   
-  dispatch(loadingPostOpportunity);
-  
-  axios.post('/api/opportunities', data, HEADERS)
+  axios.post('/api/opportunities', data)
     .then(({ data }) => {
       dispatch(setPostOpportunityResult(data));
     })

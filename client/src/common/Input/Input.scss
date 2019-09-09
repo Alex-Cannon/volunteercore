@@ -31,6 +31,14 @@
   }
 }
 
+.input-danger {
+  border: 1px solid $text-danger;
+}
+
+.input-success {
+  border: 1px solid $text-success;
+}
+
 select {
   @extend .input;
 }

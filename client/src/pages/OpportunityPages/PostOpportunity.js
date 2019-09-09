@@ -24,9 +24,9 @@ export const PostOpportunity = ({ opportunity, setFormData }) => {
           setFormData={(object) => dispatch(setFormData(object))}
           submitForm={() => postOpportunity(formData)}
         />
-        {result ? result.items.map(item => <p>{item.name}</p>) : ''}
+        {result ? <p className="text-success">{`Opportunity added to ${result.partner_name}`}</p> : ''}
         {error ? <p className="text-danger">{error.message}</p> : ''}
-        {loading ? <p>Loading Opportunities...</p> : ''}
+        {loading ? <p>Adding Opportunity...</p> : ''}
       </section>
     </PageWrapper>
   );
