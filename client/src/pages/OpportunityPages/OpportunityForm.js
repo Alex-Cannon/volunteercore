@@ -19,8 +19,8 @@ export const OpportunityForm = ({ formData, setFormData, submitForm }) => {
           label="Partner"
           placeholder="Search Partners"
           required
-          value={formData.partner_name}
           setValue={(val) => setFormData({ partner_name: val })}
+          value={formData.partner_name}
         />
         <Input
           label="Name"

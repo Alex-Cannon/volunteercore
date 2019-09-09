@@ -50,7 +50,7 @@ export class SearchSelectOne extends Component {
   render () {
     const { setValue, value } = this.props;
     const { isFocus } = this.state;
-    const { result, error, loading } = this.state;
+    const { result } = this.state;
 
     return (
       <div className={`search-select-one-container${isFocus ? '-focus' : ''}`}>
