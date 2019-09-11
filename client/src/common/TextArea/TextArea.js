@@ -2,11 +2,11 @@ import React from 'react';
 import './TextArea.scss';
 
 export const TextArea = (props) => {
-  const { label } = props;
+  const { label, required } = props;
 
   return (
     <div className="input-group">
-      {label ? <label>{label}</label> : ""}
+      {label ? <label>{ (required ? "* " : "") + label}</label> : ""}
       <textarea
         className="textarea"
         {...props}
