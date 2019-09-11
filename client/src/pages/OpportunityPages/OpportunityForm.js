@@ -18,7 +18,7 @@ export const OpportunityForm = ({ formData, submitClass, submitText, setFormData
         <SearchSelectOne
           asyncGetOptions={getPartners}
           label="Partner"
-          placeholder="Search Partners"
+          placeholder="Search Partners (Ex: 'Red Cross')"
           required
           setValue={(val) => setFormData({ partner_name: val })}
           value={formData.partner_name}
