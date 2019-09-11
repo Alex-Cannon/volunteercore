@@ -3,6 +3,7 @@ import { ExternalLink as ExLink } from '../../common/ExternalLink/ExternalLink';
 
 import Form from '../../common/Form/Form';
 import Input from '../../common/Input/Input';
+import TextArea from '../../common/TextArea/TextArea';
 import SearchSelectOne from '../../common/SearchSelectOne/SearchSelectOne';
 
 import getPartners from '../../utils/services/partner/getPartners';
@@ -28,8 +29,9 @@ export const OpportunityForm = ({ formData, submitClass, submitText, setFormData
           required
           setValue={(val) => setFormData({ name: val })}
         />
-        <Input
+        <TextArea
           label="Description"
+          placeholder="Enter Description"
           name="description"
           required
           setValue={(val) => setFormData({ description: val })}

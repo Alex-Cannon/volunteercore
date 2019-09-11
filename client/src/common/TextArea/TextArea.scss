@@ -1,0 +1,11 @@
+@import '../Input/Input.scss';
+
+.textarea {
+  @extend .input;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 8rem;
+  max-height: 70vh;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
