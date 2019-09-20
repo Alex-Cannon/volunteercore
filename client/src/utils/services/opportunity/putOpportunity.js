@@ -7,13 +7,13 @@ const dispatch = store.dispatch;
 export const putOpportunity = (formData, callback) => {
   if (!callback) dispatch(putOpportunityLoading());
 
-  axios.put(`/api/opportunities/${formData.id}`)
+  axios.put(`/api/opportunities/${formData.id}`, formData)
     .then(({ data }) => {
-      if (!callback) dispatch(setPutOpportunityResult(data));
+      if (!callback) return dispatch(setPutOpportunityResult(data));
       callback(data, null);
     })
     .catch(error => {
-      if (!callback) dispatch(setPutOpportunityError(error));
+      if (!callback) return dispatch(setPutOpportunityError(error));
       callback(null, error);
     });
 }

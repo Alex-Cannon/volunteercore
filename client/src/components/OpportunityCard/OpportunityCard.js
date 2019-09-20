@@ -24,7 +24,7 @@ export const OpportunityCard = ({ opportunity }) => {
       </div>
       <br/>
       <p>
-        {description ? description.substring(0, 101) + '...' : ''}
+        {description ? description.substring(0, 201) + '...' : ''}
       </p>
       <p>{JSON.stringify(tags)}</p>
     </div>

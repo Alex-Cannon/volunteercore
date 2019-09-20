@@ -1,4 +1,4 @@
-export const opportunityList = (list = { queryData: {
+export const opportunityList = (list = { options: {
   search: "",
   page: 1,
   per_page: 10

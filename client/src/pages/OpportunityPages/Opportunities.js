@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import PageWrapper from '../../components/PageWrapper/PageWrapper';
 import SearchBar from '../../components/SearchBar/SearchBar';
+import Pagination from '../../components/Pagination/Pagination';
 import { OpportunityCard } from '../../components/OpportunityCard/OpportunityCard';
 
 import { getOpportunities } from '../../utils/services/opportunity/getOpportunities';
@@ -11,16 +12,16 @@ import { connect } from 'react-redux';
 
 export class Opportunities extends Component {
   componentDidMount() {
-    const { loading, result, error, queryData } = this.props.opportunityList;
+    const { loading, result, error, options } = this.props.opportunityList;
 
     if (!loading && !result && !error) {
-      getOpportunities(queryData);
+      getOpportunities(options);
     }
   }
 
   render () {
-    const { loading, result, error, queryData } = this.props.opportunityList;
-    const setQueryData = this.props;
+    const { loading, result, error, options } = this.props.opportunityList;
+    const { setQueryData } = this.props;
 
     return (
       <PageWrapper>
@@ -29,7 +30,7 @@ export class Opportunities extends Component {
           <SearchBar
             addLink="/opportunities/post"
             placeholder="Search Opportunities"
-            value={queryData.search}
+            value={options.search}
             setValue={setQueryData}
           />
           {result ? result.items.map((opportunity, i) => {
@@ -42,6 +43,14 @@ export class Opportunities extends Component {
           }) : 'No Results'}
           {error ? <p className="text-danger">{error.message}</p> : ''}
           {loading ? <p>Loading Opportunities...</p> : ''}
+          <Pagination
+            query={this.props.opportunityList}
+            nextPageAction={(pageNum) => {
+              if (pageNum === options.pageNum) return;
+              const newOptions = options;
+              newOptions.page = pageNum;
+              getOpportunities(newOptions);
+          }}/>
         </section>
       </PageWrapper>
     );
