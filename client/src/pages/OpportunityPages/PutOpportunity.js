@@ -17,7 +17,13 @@ export const PutOpportunity = ({ opportunity, setFormData, setPutOpportunityErro
 
   useEffect(() => {
     getOpportunity(match.params.id)
-      .then(({ data }) => dispatch(setFormData(data)))
+      .then(({ data }) => {
+        Object.keys(data).forEach(key => {
+          if (data[key] === null) delete data[key];
+        });
+
+        dispatch(setFormData(data));
+      })
       .catch((error) => dispatch(setPutOpportunityError(error))
     );
   }, []);

@@ -7,6 +7,8 @@ const dispatch = store.dispatch;
 export const putOpportunity = (formData, callback) => {
   if (!callback) dispatch(putOpportunityLoading());
 
+  console.log(formData);
+
   axios.put(`/api/opportunities/${formData.id}`, formData)
     .then(({ data }) => {
       if (!callback) return dispatch(setPutOpportunityResult(data));
