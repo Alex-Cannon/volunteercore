@@ -32,7 +32,7 @@ export const App = ({ user, setSignInResult }) => {
       .catch(({ error }) => {
         store.dispatch(setSignInError(error));
       })
-  });
+  }, []);
 
   const RESOLVED_ROUTES = (() => {
     return ROUTES.map(({path, component, auth}, i) => {
